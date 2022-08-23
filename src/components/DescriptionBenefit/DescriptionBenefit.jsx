@@ -31,7 +31,7 @@ const DescriptionBenefit = () => {
 					/>
 					<div>
 						<h3 style={{ color: '#003da5' }}>Nombre del descuento </h3>
-						<p style={{ color: '#04f758b' }}>Descripción</p>
+						<p style={{ color: '#4F758B' }}>Descripción</p>
 						<button className={style.btnDetaills}>Ver detalle</button>
 					</div>
 				</div>

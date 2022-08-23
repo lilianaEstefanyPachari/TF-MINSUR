@@ -1,4 +1,6 @@
 .btnComeBack{
+    display:flex;
+    align-items: center;
     color: #4F758B; 
     background: transparent;
     border:none;
@@ -7,6 +9,7 @@
     color: #003DA5;
     background: transparent;
     border:none;
+    font-weight: bold;
 }
 .topDescription{
     display: flex;
@@ -23,6 +26,7 @@
     
 }
 .boxFloating{
+    text-align: center;
     background-color: #41B6E6;
     border-radius: 0px 0px 0px 10px;
     color: white;
@@ -52,4 +56,5 @@
     border: none;
     color: white;
     font-size: 18px;
+    margin: 5px 0 10px 0;
 }

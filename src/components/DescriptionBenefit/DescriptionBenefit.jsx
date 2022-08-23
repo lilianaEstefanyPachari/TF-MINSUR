@@ -7,26 +7,32 @@ import style from './DescriptionBenefit.module.css';
 const DescriptionBenefit = () => {
 	return (
 		<section>
-			<div>
-				<button>
-					<MdKeyboardArrowLeft /> Regresar
+			<div className={style.topDescription}>
+				<button className={style.btnComeBack}>
+					<MdKeyboardArrowLeft style={{ fontSize: 20 }} /> Regresar
 				</button>
-				<select>
+				<select className={style.btnSelect}>
 					<option value='0'>Prueba 1</option>
 					<option value='1'>Prueba 2</option>
 					<option value='2'>Prueba 3</option>
 				</select>
 			</div>
-			<div>
-				<img src={vacio} alt='' width='20%' />
-				<h4>50% de descuento</h4>
-				<p>Cuenta sueldo</p>
+			<div className={style.container}>
+				<div className={style.alcostado}>
+					<div className={style.boxFloating}>
+						<h4>50% de descuento</h4>
+						<p>Cuenta sueldo</p>
+					</div>
+					<img src={vacio} alt='' />
+				</div>
 				<div className={style.descripBenefit}>
-					<AiOutlineHeart />
+					<AiOutlineHeart
+						style={{ margin: 20, fontSize: 40, color: '#768998' }}
+					/>
 					<div>
-						<h3>Nombre del descuento</h3>
-						<p>Descripción</p>
-						<button>Ver detalle</button>
+						<h3 style={{ color: '#003da5' }}>Nombre del descuento </h3>
+						<p style={{ color: '#04f758b' }}>Descripción</p>
+						<button className={style.btnDetaills}>Ver detalle</button>
 					</div>
 				</div>
 			</div>

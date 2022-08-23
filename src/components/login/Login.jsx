@@ -7,6 +7,7 @@ import Logo from '../../assets/Logo_Minsur.png';
 import { useAuth } from '../../context/authContext';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
+import { loginMicrosoft } from '../../services/auth';
 
 // corrrigiendo
 const Login = () => {
@@ -59,7 +60,7 @@ const Login = () => {
 			</div>
 			<form onSubmit={onSubmit}>
 				{/* <h1>Ingresar</h1> */}
-				<TextField
+				<TextField  
 					onChange={e => {
 						setEmail(e.target.value);
 					}}
@@ -100,8 +101,11 @@ const Login = () => {
 				<button type='submit' className={style.submitBtn}>
 					Ingresar
 				</button>
+				<button type='submit' className={style.submitBtn1} onClick={loginMicrosoft}>
+					<img src={require('../../assets/Icono-microsoft.png')} className={style.imgIco}/> <div className={style.divTxt}> Ingresar con Microsoft</div>
+				</button>
 			</form>
-			
+
 			{/* <div id={style.container}>
 				<div id={style.modal}>
 					<h2>Aviso</h2>
@@ -112,5 +116,4 @@ const Login = () => {
 		</section>
 	);
 };
-
 export default Login;

@@ -5,3 +5,16 @@
 	color: #ffffff;
 	font-size: 25px;
 }
+.benefits {
+	font-weight: 500;
+	font-size: 20px;
+	text-align: center;
+	color: #4f758b;
+	border-bottom: 3px solid #003da5;
+}
+.projects {
+	font-weight: 500;
+	font-size: 20px;
+	text-align: center;
+	color: #cacaca;
+}

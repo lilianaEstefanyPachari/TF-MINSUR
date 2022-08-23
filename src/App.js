@@ -12,6 +12,7 @@ function App() {
 				<BrowserRouter>
 					<Routes>
 						<Route path='/' element={<Login />} />
+						<Route path='/home' element={<Home />} />
 						<Route path='/formFreeTime' element={<TimeCoupon />} />
 					</Routes>
 				</BrowserRouter>

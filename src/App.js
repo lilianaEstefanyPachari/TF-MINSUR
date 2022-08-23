@@ -8,12 +8,14 @@ import TimeCoupon from './components/timeCoupon/TimeCoupon';
 function App() {
 	return (
 		<>
-			<BrowserRouter>
-				<Routes>
-					<Route path='/' element={<Login />} />
-					<Route path='/formFreeTime' element={<TimeCoupon />} />
-				</Routes>
-			</BrowserRouter>
+			<AuthProvider>
+				<BrowserRouter>
+					<Routes>
+						<Route path='/' element={<Login />} />
+						<Route path='/formFreeTime' element={<TimeCoupon />} />
+					</Routes>
+				</BrowserRouter>
+			</AuthProvider>
 		</>
 	);
 }

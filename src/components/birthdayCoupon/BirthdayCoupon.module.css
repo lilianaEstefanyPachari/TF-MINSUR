@@ -1,0 +1,32 @@
+.container {
+	background-color: #003da5;
+}
+.greetings {
+	color: #ffffff;
+	font-size: 25px;
+}
+.tittle {
+	font-size: 16px;
+	font-weight: bold;
+	color: #9063cd;
+	justify-content: center;
+	align-self: center;
+}
+.subtittle {
+	font-size: 16px;
+	font-weight: bold;
+	color: #003da5;
+	margin-left: 15px;
+}
+
+.submitBtn {
+	margin-top: 5px;
+	background-color: #9063cd;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	height: 50px;
+	width: 220px;
+	border-radius: 25px;
+	border: none;
+}

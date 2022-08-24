@@ -27,4 +27,8 @@ export const loginMicrosoft = () => {
 			// Handle error.
 			console.log(error);
 		});
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> dc8c8268349b29ac7939ab1940200862b1eb4a7b

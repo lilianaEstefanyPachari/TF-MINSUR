@@ -6,6 +6,7 @@
 	height: 100vh;
 	width: 100%;
 }
+
 .logoContainer {
 	display: flex;
 	flex-direction: column;
@@ -15,6 +16,11 @@
 .logo {
 	width: 225px;
 	align-self: center;
+}
+
+.title{
+	
+	color: #003da5;
 }
 
 form {
@@ -30,60 +36,17 @@ h1 {
 	font-weight: bold;
 }
 
-/* input{
-  width: 300px;
-  border-radius: 20px;
-
-
-} */
-
 .link {
 	margin: 5%;
 }
 
-<<<<<<< HEAD
-.submitBtn, .submitBtn1{
-=======
 .submitBtn,
 .submitBtn1 {
->>>>>>> dc8c8268349b29ac7939ab1940200862b1eb4a7b
 	color: #ffffff;
 	background-color: #003da5;
 	width: 270px;
 	height: 50px;
 	font-weight: bold;
-<<<<<<< HEAD
-	font-size: 18px;
-	border-radius: 25px;
-	box-shadow: none;
-	margin: 5%;
-	cursor: pointer;
-	text-align: center;
-	border: none;
-}
-.submitBtn1{
-	background-color: #4F758B;
-	display: flex;
-	margin: 15px;
-	padding: 7px;
-	
-}
-.submitBtn:hover{
-	background-color: #41B6E6;
-	color: #003da5;
-}
-.submitBtn1:hover{
-	background-color: #A6BBC8;
-	color: #4F758B;
-}
-
-.imgIco{
-	width: 33px;
-	margin-left: 10px;	
-}
-
-.divTxt{
-=======
 	font-size: 16px;
 	border-radius: 25px;
 	box-shadow: none;
@@ -113,7 +76,6 @@ h1 {
 }
 
 .divTxt {
->>>>>>> dc8c8268349b29ac7939ab1940200862b1eb4a7b
 	padding: 10px;
 }
 #container {
@@ -142,22 +104,7 @@ h1 {
 	padding: 5%;
 	border-radius: 5%;
 }
-/* p{
-	visibility: hidden;
-} */
 @media (min-width: 400px) {
-<<<<<<< HEAD
-form{
-	margin: auto;
-}
-.submitBtn, .submitBtn1{
-	margin: 20px;
-}
-.link {
-	margin: 10px;
-}
-}
-=======
 	form {
 		margin: auto;
 	}
@@ -169,4 +116,3 @@ form{
 		margin: 10px;
 	}
 }
->>>>>>> dc8c8268349b29ac7939ab1940200862b1eb4a7b

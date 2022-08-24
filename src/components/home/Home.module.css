@@ -5,7 +5,21 @@
 	color: #ffffff;
 	font-size: 25px;
 }
-.benefits {
+.textActive {
+	font-weight: 500;
+	font-size: 20px;
+	text-align: center;
+	color: #4f758b;
+	border-bottom: 3px solid #003da5;
+}
+.proyects {
+	font-weight: 500;
+	font-size: 20px;
+	text-align: center;
+	color: #cacaca;
+	/* border-bottom: 3px solid #003da5; */
+}
+/* .proyects{
 	font-weight: 500;
 	font-size: 20px;
 	text-align: center;
@@ -17,4 +31,25 @@
 	font-size: 20px;
 	text-align: center;
 	color: #cacaca;
+} */
+.BenefitBtns {
+	width: 145px;
+	height: 140px;
+	border-radius: 10px;
+	border: none;
+	padding: 8px;
+	color: #ffffff;
+	font-weight: 600;
+}
+.btnColor {
+	background-color: #c4d600;
+}
+.btnColor:hover {
+	background-color: #b9c907;
+}
+.btnColor2 {
+	background-color: #9063cd;
+}
+.btnColor2:hover {
+	background-color: #7952af;
 }

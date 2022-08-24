@@ -18,7 +18,7 @@ const Login = () => {
 	const [error, setError] = useState(null);
 	const { signIn } = useAuth();
 
-	const onSubmit = async e => {
+	const handleEmailAndPassword = async e => {
 		e.preventDefault();
 		try {
 			await signIn(email, password);
@@ -26,7 +26,7 @@ const Login = () => {
 		} catch (error) {
 			switch (error.code) {
 				case '':
-					setError('Campos vacíos.Ingrese correo y contraseña');
+					setError('Campos vacíos. Ingrese correo y contraseña');
 					break;
 				case 'auth/user-not-found':
 					setError('Usuario no registrado');
@@ -38,7 +38,7 @@ const Login = () => {
 					setError('Ingrese un correo válido');
 					break;
 				case 'auth/internal-error':
-					setError('Ingrese su contraa');
+					setError('Ingrese su contraseña');
 					break;
 				default:
 					setError('Otro error');
@@ -46,19 +46,13 @@ const Login = () => {
 		}
 	};
 
-	// const [popupActive, setPopupActive] = useState(false);
-
-	// const handleClose = () => {
-	// 	setPopupActive(false);
-	// };
-
 	return (
 		<section className={style.container}>
 			<div className={style.logoContainer}>
 				<img className={style.logo} src={Logo} alt='Logo' />
 			</div>
-			<form onSubmit={onSubmit}>
-				{/* <h1>Ingresar</h1> */}
+			<h3 className={style.title}>Inicio sesión</h3>
+			<form>
 				<TextField
 					onChange={e => {
 						setEmail(e.target.value);
@@ -97,11 +91,10 @@ const Login = () => {
 				<Link className={style.link} to='#'>
 					¿Olvidaste tu contraseña?
 				</Link>
-				<button type='submit' className={style.submitBtn} onClick={onSubmit}>
+				<button className={style.submitBtn} onClick={handleEmailAndPassword}>
 					Ingresar
 				</button>
 				<button
-					type='submit'
 					className={style.submitBtn1}
 					onClick={loginMicrosoft}
 				>
@@ -112,16 +105,9 @@ const Login = () => {
 					<div className={style.divTxt}> Ingresar con Microsoft</div>
 				</button>
 			</form>
-			{/* <div id={style.container}>
-				<div id={style.modal}>
-					<h2>Aviso</h2>
-					<p> El usuario y/o contraseña no son correctos, vovler a intentar.</p>
-					<button>Aceptar</button>
-				</div>
-			</div> */}
-			<p>{error}</p>
 			{error && <Popup>{error}</Popup>}
 		</section>
 	);
 };
+
 export default Login;

@@ -11,12 +11,14 @@
 	flex-direction: column;
 	padding: 5% 0 5% 0;
 }
-
 .logo {
 	width: 225px;
 	align-self: center;
 }
 
+.title{
+	color: #003da5;
+}
 form {
 	margin: 20px auto;
 	display: flex;
@@ -24,23 +26,13 @@ form {
 	align-items: center;
 	gap: 5px;
 }
-
 h1 {
 	color: #003da5;
 	font-weight: bold;
 }
-
-/* input{
-  width: 300px;
-  border-radius: 20px;
-
-
-} */
-
 .link {
 	margin: 5%;
 }
-
 .submitBtn,
 .submitBtn1 {
 	color: #ffffff;
@@ -70,12 +62,10 @@ h1 {
 	background-color: #a6bbc8;
 	color: #4f758b;
 }
-
 .imgIco {
 	width: 33px;
 	margin-left: 10px;
 }
-
 .divTxt {
 	padding: 10px;
 }
@@ -105,9 +95,6 @@ h1 {
 	padding: 5%;
 	border-radius: 5%;
 }
-/* p{
-	visibility: hidden;
-} */
 @media (min-width: 400px) {
 	form {
 		margin: auto;

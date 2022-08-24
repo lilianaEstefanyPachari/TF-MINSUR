@@ -1,3 +1,11 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+}
 .logoContainer {
 	display: flex;
 	flex-direction: column;
@@ -10,7 +18,7 @@
 }
 
 form {
-	margin: 15%;
+	margin: 20px auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -33,42 +41,42 @@ h1 {
 	margin: 5%;
 }
 
-.submitBtn, .submitBtn1{
+.submitBtn,
+.submitBtn1 {
 	color: #ffffff;
 	background-color: #003da5;
-	width: 300px;
+	width: 270px;
 	height: 50px;
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 16px;
 	border-radius: 25px;
 	box-shadow: none;
-	margin: 5%;
+	margin: 3%;
 	cursor: pointer;
 	text-align: center;
 	border: none;
 }
-.submitBtn1{
-	background-color: #4F758B;
+.submitBtn1 {
+	background-color: #4f758b;
 	display: flex;
 	margin: 15px;
 	padding: 7px;
-	
 }
-.submitBtn:hover{
-	background-color: #41B6E6;
+.submitBtn:hover {
+	background-color: #41b6e6;
 	color: #003da5;
 }
-.submitBtn1:hover{
-	background-color: #A6BBC8;
-	color: #4F758B;
+.submitBtn1:hover {
+	background-color: #a6bbc8;
+	color: #4f758b;
 }
 
-.imgIco{
+.imgIco {
 	width: 33px;
-	margin-left: 10px;	
+	margin-left: 10px;
 }
 
-.divTxt{
+.divTxt {
 	padding: 10px;
 }
 #container {
@@ -101,13 +109,14 @@ h1 {
 	visibility: hidden;
 } */
 @media (min-width: 400px) {
-form{
-	margin: auto;
-}
-.submitBtn, .submitBtn1{
-	margin: 20px;
-}
-.link {
-	margin: 10px;
-}
+	form {
+		margin: auto;
+	}
+	.submitBtn,
+	.submitBtn1 {
+		margin: 20px;
+	}
+	.link {
+		margin: 10px;
+	}
 }

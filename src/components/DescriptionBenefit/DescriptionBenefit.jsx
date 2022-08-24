@@ -28,7 +28,7 @@ const DescriptionBenefit = () => {
 				</button>
 				<select
 					className={style.btnSelect}
-					onChange={() => filterCategory('Viajes')}
+					onChange={x => filterCategory(x.target.value)}
 				>
 					<option value='Alimentos - Parrillas'>Alimentos - Parrillas</option>
 					<option value='Gimnasio'>Gimnasio</option>
@@ -43,7 +43,7 @@ const DescriptionBenefit = () => {
 								<h4>{item.desc}% Dscto</h4>
 								<p>Cuenta sueldo</p>
 							</div>
-							<img src={vacio} alt='' />
+							<img src={item.img} alt='' />
 						</div>
 						<div className={style.descripBenefit}>
 							<AiOutlineHeart

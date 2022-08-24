@@ -1,0 +1,30 @@
+.divheader{
+    background-color: #41B6E6;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 0 0 0 10px;
+    width: 180px;
+    height: 40px;
+    float: right;
+    padding: 20px 0 0 20px;
+}
+.title{
+    color:#003DA5;
+}
+.divImage{
+   
+    text-align: center;
+    grid-template-rows: max-content;
+}
+.description{
+    color: #4F758B;
+}
+.btnApply{
+    background-color: #41B6E6;
+    border: none;
+    width: 229px;
+	height: 54px;
+	border-radius: 30px;
+    color: #FFFFFF;
+    font-weight: bold;
+}

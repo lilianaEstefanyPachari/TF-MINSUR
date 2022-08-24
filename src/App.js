@@ -20,6 +20,8 @@ function App() {
 						<Route path='/Description' element={ <DescriptionBenefit />} />
 						<Route path='/Information' element={ <BenefitsInformation />} />
 						<Route path='/Description' element={<DescriptionBenefit />} />
+						<Route path='/Description:id' element={<BenefitsInformation />} />
+						<Route path='/Information' element={<BenefitsInformation />} />
 					</Routes>
 				</BrowserRouter>
 			</AuthProvider>

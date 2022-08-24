@@ -6,10 +6,17 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { CardMedia } from '@mui/material';
+import { HomeBtn, HomeBtns } from '../home/homeBtn/homeBtns';
 
-export function SimpleAccordion({ src, title, description }) {
+export function SimpleAccordion({
+	src,
+	title,
+	description,
+	actionBtn,
+	actionBtns,
+}) {
 	return (
-		<Accordion>
+		<Accordion sx={{ padding: '10px' }}>
 			<AccordionSummary
 				expandIcon={<ExpandMoreIcon />}
 				aria-controls='panel1a-content'
@@ -20,12 +27,21 @@ export function SimpleAccordion({ src, title, description }) {
 					image={src}
 					sx={{ width: '40px', height: '40px' }}
 				/>
-				<Typography sx={{ color: '#003DA5', fontWeight: '700' }}>
+				<Typography
+					sx={{ color: '#003DA5', fontWeight: '700', marginLeft: '15px' }}
+				>
 					{title}
 				</Typography>
 			</AccordionSummary>
 			<AccordionDetails>
-				<Typography>{description}</Typography>
+				<Typography
+					sx={{ color: '#4F758B', fontWeight: '400' }}
+					align='justify'
+				>
+					{description}
+				</Typography>
+				{actionBtn && <HomeBtn actionBtn={actionBtn}></HomeBtn>}
+				{actionBtns && <HomeBtns></HomeBtns>}
 			</AccordionDetails>
 		</Accordion>
 	);

@@ -23,16 +23,14 @@ export const onGetUserData = async idDoc => {
 };
 
 // data de beneficios
-export const getBenefits = async setBenefits => {
+export const getBenefitsQuerySnapshot = async () => {
 	const querySnapshot = await getDocs(
 		collection(db, 'beneficios'),
 		orderBy('IdBenef', 'desc')
 	);
-	const dataBenefits = [];
-	querySnapshot.forEach(doc => {
-		// doc.data() is never undefined for query doc snapshots
-		// console.log(doc.id, ' => ', doc.data());
-		dataBenefits.push(doc.data());
-	});
-	setBenefits(dataBenefits);
+	return querySnapshot;
+	// const dataBenefits = [];
+	// querySnapshot.forEach(doc => {
+	// 	dataBenefits.push(doc.data());
+	// });
 };

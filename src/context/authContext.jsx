@@ -23,10 +23,12 @@ export function AuthProvider({ children }) {
 			if (user){
 			setUser(user);
 			const userData = await onGetUserData(user.uid);
+
 			setUserData(userData);
 			}
 		});
 	}, []);
+	// [user]
 
 	return (
 		// los comp hijos podrán acceder a todo los datos q esta en provider

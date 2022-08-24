@@ -4,6 +4,7 @@ import { Stack } from '@mui/material';
 import Nav from '../nav/Nav';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import { SimpleAccordion } from '../accordion/accordion';
+import Greetings from '../greetings/greetings';
 import icon1 from './iconsHome/icon1.png';
 import icon2 from './iconsHome/icon2.png';
 import icon3 from './iconsHome/icon3.png';
@@ -13,8 +14,9 @@ import icon6 from './iconsHome/icon6.png';
 import icon7 from './iconsHome/icon7.png';
 import icon8 from './iconsHome/icon8.png';
 import icon9 from './iconsHome/icon9.png';
-import { useAuth } from '../../context/authContext';
-import { getBenefits } from '../../services/firestore';
+
+import { getBenefitsQuerySnapshot } from '../../services/firestore';
+
 const Home = () => {
 	// simulando data para props
 	const actionBtn = {
@@ -22,18 +24,26 @@ const Home = () => {
 		opc2: 'Solicitar beneficioooo',
 	};
 
-	const [benefits, setBenefits] = useState([]);
+	const [benefitsData, setBenefitsData] = useState([]);
 	// obteniendo beneficios de data
 	useEffect(() => {
-		getBenefits(setBenefits);
-		console.log(benefits);
+		const getBenefits = async () => {
+			try {
+				const querySnapshot = await getBenefitsQuerySnapshot();
+				const benefits = [];
+				querySnapshot.forEach(doc => {
+					benefits.push({ ...doc.data(), id: doc.id });
+				});
+				setBenefitsData(benefits);
+				console.log(benefits);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		getBenefits();
+		console.log(benefitsData);
 	}, []);
-	// nombre del usuario
-	let userName;
-	const { userData } = useAuth();
-	if (userData) {
-		userName = userData.Nombres;
-	}
+
 	// manejando vistas
 	const [stateViewOptions, setStateViewOptions] = useState(true);
 	const viewOptionsController = () => setStateViewOptions(true);
@@ -42,22 +52,7 @@ const Home = () => {
 			<Stack>
 				<Nav></Nav>
 			</Stack>
-			<Stack
-				direction='row'
-				sx={{
-					height: '80px',
-					justifyContent: 'center',
-					alignItems: 'center',
-				}}
-			>
-				<p className={styles.greetings}>
-					Hola, <span style={{ fontWeight: '600' }}>{userName}!</span>
-				</p>
-				<NotificationsNoneIcon
-					fontSize='large'
-					sx={{ color: '#FFFFFF', margin: '3px' }}
-				/>
-			</Stack>
+			<Greetings></Greetings>
 			<Stack sx={{ background: '#FFFFFF', borderRadius: '20px 20px 0 0' }}>
 				<Stack
 					direction='row'

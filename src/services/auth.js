@@ -16,16 +16,11 @@ export const loginMicrosoft = (e) => {
 	return signInWithPopup(auth, provider)
 		.then(result => {
 			console.log('funcionaaa');
-			// User is signed in.
-			// IdP data available in result.additionalUserInfo.profile.
-
-			// Get the OAuth access token and ID Token
 			const credential = OAuthProvider.credentialFromResult(result);
 			const accessToken = credential.accessToken;
 			const idToken = credential.idToken;
 		})
 		.catch(error => {
-			// Handle error.
 			console.log(error);
 			console.log(error.stack);
 			console.loge(error.message);

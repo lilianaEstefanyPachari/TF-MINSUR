@@ -8,23 +8,22 @@ import { useAuth } from '../../context/authContext';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import { loginMicrosoft } from '../../services/auth';
+import  Popup  from '../popups/Popup';
 
-// corrrigiendo
+// corrigiendo
 const Login = () => {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [error, setError] = useState();
-
+	const [error, setError] = useState(null);
 	const { signIn } = useAuth();
-	const onSubmit = async e => {
+
+	const onSubmit = async (e) => {
 		e.preventDefault();
 		try {
 			await signIn(email, password);
 			navigate('/');
-			console.log('inicio de sesión exitoso');
 		} catch (error) {
-			console.log(error.code, error.message);
 			switch (error.code) {
 				case '':
 					setError('Campos vacíos.Ingrese correo y contraseña');
@@ -47,11 +46,11 @@ const Login = () => {
 		}
 	};
 
-	const [popupActive, setPopupActive] = useState(false);
+	// const [popupActive, setPopupActive] = useState(false);
 
-	const handleClose = () => {
-		setPopupActive(false);
-	};
+	// const handleClose = () => {
+	// 	setPopupActive(false);
+	// };
 
 	return (
 		<section>
@@ -98,14 +97,14 @@ const Login = () => {
 				<Link className={style.link} to='#'>
 					¿Olvidaste tu contraseña?
 				</Link>
-				<button type='submit' className={style.submitBtn}>
+				<button type='submit' className={style.submitBtn} onClick={onSubmit}>
 					Ingresar
 				</button>
 				<button type='submit' className={style.submitBtn1} onClick={loginMicrosoft}>
-					<img src={require('../../assets/Icono-microsoft.png')} className={style.imgIco}/> <div className={style.divTxt}> Ingresar con Microsoft</div>
+					<img src={require('../../assets/Icono-microsoft.png')} className={style.imgIco}/>
+					<div className={style.divTxt}> Ingresar con Microsoft</div>
 				</button>
 			</form>
-
 			{/* <div id={style.container}>
 				<div id={style.modal}>
 					<h2>Aviso</h2>
@@ -113,6 +112,8 @@ const Login = () => {
 					<button>Aceptar</button>
 				</div>
 			</div> */}
+			<p>{error}</p>
+			{error && <Popup>{error}</Popup>}
 		</section>
 	);
 };

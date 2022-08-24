@@ -2,46 +2,55 @@ import React, { useState, useEffect } from 'react';
 import styles from './Home.module.css';
 import { Stack } from '@mui/material';
 import Nav from '../nav/Nav';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import { SimpleAccordion } from '../accordion/accordion';
 import Greetings from '../greetings/greetings';
-import icon1 from './iconsHome/icon1.png';
-import icon2 from './iconsHome/icon2.png';
-import icon3 from './iconsHome/icon3.png';
-import icon4 from './iconsHome/icon4.png';
-import icon5 from './iconsHome/icon5.png';
-import icon6 from './iconsHome/icon6.png';
-import icon7 from './iconsHome/icon7.png';
-import icon8 from './iconsHome/icon8.png';
-import icon9 from './iconsHome/icon9.png';
 
-import { getBenefitsQuerySnapshot } from '../../services/firestore';
+import {
+	getBenefitsQuerySnapshot,
+	getProgramsQuerySnapshot,
+} from '../../services/firestore';
 
 const Home = () => {
 	// simulando data para props
-	const actionBtn = {
-		opc1: 'Solicitar beneficio',
-		opc2: 'Solicitar beneficioooo',
-	};
 
 	const [benefitsData, setBenefitsData] = useState([]);
+	const [programsData, setProgramsData] = useState([]);
+	let timeCupons = null;
+	let otherBenefits = null;
+	let educationPrograms = null;
+	let otherPrograms = null;
+	if (benefitsData.length) {
+		timeCupons = benefitsData.filter(e => e.IdBenef < 2);
+		otherBenefits = benefitsData.filter(e => e.IdBenef >= 2);
+	}
+	if (programsData.length) {
+		educationPrograms = programsData.filter(e => e.IdPrograma < 3);
+		otherPrograms = programsData.filter(e => e.IdPrograma >= 3);
+	}
+
 	// obteniendo beneficios de data
 	useEffect(() => {
-		const getBenefits = async () => {
+		const getBenefitsAndPrograms = async () => {
 			try {
-				const querySnapshot = await getBenefitsQuerySnapshot();
+				const querySnapshotBenefits = await getBenefitsQuerySnapshot();
+				const querySnapshotPrograms = await getProgramsQuerySnapshot();
 				const benefits = [];
-				querySnapshot.forEach(doc => {
+				const programs = [];
+				querySnapshotBenefits.forEach(doc => {
 					benefits.push({ ...doc.data(), id: doc.id });
 				});
 				setBenefitsData(benefits);
+				querySnapshotPrograms.forEach(doc => {
+					programs.push({ ...doc.data(), id: doc.id });
+				});
+				setProgramsData(programs);
 				console.log(benefits);
+				console.log(programs);
 			} catch (error) {
 				console.log(error);
 			}
 		};
-		getBenefits();
-		console.log(benefitsData);
+		getBenefitsAndPrograms();
 	}, []);
 
 	// manejando vistas
@@ -52,8 +61,16 @@ const Home = () => {
 			<Stack>
 				<Nav></Nav>
 			</Stack>
+
 			<Greetings></Greetings>
-			<Stack sx={{ background: '#FFFFFF', borderRadius: '20px 20px 0 0' }}>
+			<Stack
+				className={styles.viewport}
+				sx={{
+					background: '#FFFFFF',
+					borderRadius: '20px 20px 0 0',
+					paddingBottom: '15px',
+				}}
+			>
 				<Stack
 					direction='row'
 					sx={{ justifyContent: 'space-around', padding: '5px' }}
@@ -77,100 +94,47 @@ const Home = () => {
 				</Stack>
 				{stateViewOptions && (
 					<Stack sx={{ padding: '10px' }}>
-						<SimpleAccordion
-							actionBtn='Solicitar beneficio'
-							src={icon1}
-							title='Convenios'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-						></SimpleAccordion>
-						<SimpleAccordion
-							actionBtns={actionBtn}
-							src={icon2}
-							title='Cupones tiempo libre'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-						></SimpleAccordion>
-						<SimpleAccordion
-							src={icon3}
-							title='Cupones de descuentos'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-							actionBtn='Solicitar beneficio'
-						></SimpleAccordion>
-						<SimpleAccordion
-							src={icon4}
-							title='Seguro de salud'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-							actionBtn='Solicitar beneficio'
-						></SimpleAccordion>
-						<SimpleAccordion
-							src={icon5}
-							title='Home office'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-							actionBtn='Solicitar beneficio'
-						></SimpleAccordion>
-						<SimpleAccordion
-							src={icon6}
-							title='Horarios flexibles'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-							actionBtn='Solicitar beneficio'
-						></SimpleAccordion>
-						<SimpleAccordion
-							src={icon7}
-							title='Horario de verano'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-							actionBtn='Solicitar beneficio'
-						></SimpleAccordion>{' '}
-						<SimpleAccordion
-							src={icon8}
-							title='Licencia de paternidad'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-							actionBtn='Solicitar beneficio'
-						></SimpleAccordion>
-						<SimpleAccordion
-							src={icon9}
-							title='Licencia por duelo'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-							actionBtn='Solicitar beneficio'
-						></SimpleAccordion>
+						{timeCupons && (
+							<SimpleAccordion
+								actionBtns={true}
+								src={timeCupons[0].icon}
+								title='Cupones de tiempo libre'
+								description={timeCupons[0].descBenef}
+							></SimpleAccordion>
+						)}
+						{otherBenefits &&
+							otherBenefits.map(e => (
+								<SimpleAccordion
+									actionBtn='Ver detalle'
+									src={e.icon}
+									title={e.nombreBenef}
+									description={e.descBenef}
+									key={e.IdBenef}
+								></SimpleAccordion>
+							))}
 					</Stack>
 				)}
+
 				{!stateViewOptions && (
 					<Stack sx={{ padding: '10px' }}>
-						<SimpleAccordion
-							actionBtn='participar'
-							src={icon1}
-							title='Programa1'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-						></SimpleAccordion>
-						<SimpleAccordion
-							actionBtn='participar'
-							src={icon1}
-							title='Programa2'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-						></SimpleAccordion>
-						<SimpleAccordion
-							actionBtn='participar'
-							src={icon1}
-							title='Programa3'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-						></SimpleAccordion>
-						<SimpleAccordion
-							actionBtn='participar'
-							src={icon1}
-							title='Programa4'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-						></SimpleAccordion>
-						<SimpleAccordion
-							actionBtn='participar'
-							src={icon1}
-							title='Programa5'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-						></SimpleAccordion>
-						<SimpleAccordion
-							actionBtn='participar'
-							src={icon1}
-							title='Programa6'
-							description='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.'
-						></SimpleAccordion>
+						{educationPrograms && (
+							<SimpleAccordion
+								actionBtns={true}
+								src={educationPrograms[0].icon}
+								title='Educación'
+								description={educationPrograms[0].DescPrograma}
+							></SimpleAccordion>
+						)}
+						{otherPrograms &&
+							otherPrograms.map(e => (
+								<SimpleAccordion
+									key={e.IdPrograma}
+									actionBtn='Ver detalle'
+									src={e.icon}
+									title={e.NombPrograma}
+									description={e.DescPrograma}
+								></SimpleAccordion>
+							))}
 					</Stack>
 				)}
 			</Stack>
@@ -181,6 +145,7 @@ const Home = () => {
 					margin: '0 auto',
 					justifyContent: 'center',
 					alignItems: 'center',
+					height: '50px',
 				}}
 			>
 				<p>Powered by squad Minsur</p>

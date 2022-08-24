@@ -38,7 +38,7 @@ const Login = () => {
 					setError('Ingrese un correo válido');
 					break;
 				case 'auth/internal-error':
-					setError('Ingrese su contraseña');
+					setError('Ingrese su contraa');
 					break;
 				default:
 					setError('Otro error');

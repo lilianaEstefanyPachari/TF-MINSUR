@@ -14,7 +14,7 @@ import icon7 from './iconsHome/icon7.png';
 import icon8 from './iconsHome/icon8.png';
 import icon9 from './iconsHome/icon9.png';
 import { useAuth } from '../../context/authContext';
-import { getBenefits } from '../../services/firestore';
+import { getBenefitsQuerySnapshot } from '../../services/firestore';
 const Home = () => {
 	// simulando data para props
 	const actionBtn = {
@@ -22,11 +22,24 @@ const Home = () => {
 		opc2: 'Solicitar beneficioooo',
 	};
 
-	const [benefits, setBenefits] = useState([]);
+	const [benefitsData, setBenefitsData] = useState([]);
 	// obteniendo beneficios de data
 	useEffect(() => {
-		getBenefits(setBenefits);
-		console.log(benefits);
+		const getBenefits = async () => {
+			try {
+				const querySnapshot = await getBenefitsQuerySnapshot();
+				const benefits = [];
+				querySnapshot.forEach(doc => {
+					benefits.push({ ...doc.data(), id: doc.id });
+				});
+				setBenefitsData(benefits);
+				console.log(benefits);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		getBenefits();
+		console.log(benefitsData);
 	}, []);
 	// nombre del usuario
 	let userName;

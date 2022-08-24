@@ -20,10 +20,12 @@ export function AuthProvider({ children }) {
 
 	useEffect(() => {
 		onAuthStateChanged(auth, async user => {
+			if (user){
 			setUser(user);
 			const userData = await onGetUserData(user.uid);
 
 			setUserData(userData);
+			}
 		});
 	}, []);
 	// [user]

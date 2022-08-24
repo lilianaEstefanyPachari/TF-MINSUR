@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Home.module.css';
 import { Stack } from '@mui/material';
 import Nav from '../nav/Nav';
@@ -13,18 +13,30 @@ import icon6 from './iconsHome/icon6.png';
 import icon7 from './iconsHome/icon7.png';
 import icon8 from './iconsHome/icon8.png';
 import icon9 from './iconsHome/icon9.png';
+import { useAuth } from '../../context/authContext';
+import { getBenefits } from '../../services/firestore';
 const Home = () => {
 	// simulando data para props
 	const actionBtn = {
 		opc1: 'Solicitar beneficio',
 		opc2: 'Solicitar beneficioooo',
 	};
+
+	const [benefits, setBenefits] = useState([]);
+	// obteniendo beneficios de data
+	useEffect(() => {
+		getBenefits(setBenefits);
+		console.log(benefits);
+	}, []);
+	// nombre del usuario
+	let userName;
+	const { userData } = useAuth();
+	if (userData) {
+		userName = userData.Nombres;
+	}
 	// manejando vistas
 	const [stateViewOptions, setStateViewOptions] = useState(true);
-	const viewOptionsController = () => {
-		setStateViewOptions(true);
-	};
-	// className={completed ? 'text-strike' : null}
+	const viewOptionsController = () => setStateViewOptions(true);
 	return (
 		<div className={styles.container}>
 			<Stack>
@@ -39,7 +51,7 @@ const Home = () => {
 				}}
 			>
 				<p className={styles.greetings}>
-					Hola, <span style={{ fontWeight: '600' }}>usuario!</span>
+					Hola, <span style={{ fontWeight: '600' }}>{userName}!</span>
 				</p>
 				<NotificationsNoneIcon
 					fontSize='large'

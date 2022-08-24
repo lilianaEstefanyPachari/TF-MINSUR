@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { signInUser, onAuthStateChanged, auth } from '../services/auth';
+import { onGetUserData } from '../services/firestore';
 
 // createContext devuelve un objeto
 export const authContext = createContext();
@@ -14,17 +15,20 @@ export const useAuth = () => {
 
 export function AuthProvider({ children }) {
 	const [user, setUser] = useState(null);
+	const [userData, setUserData] = useState(null);
 	const signIn = (email, password) => signInUser(email, password);
 
 	useEffect(() => {
-		onAuthStateChanged(auth, user => {
+		onAuthStateChanged(auth, async user => {
 			setUser(user);
+			const userData = await onGetUserData(user.uid);
+			setUserData(userData);
 		});
 	}, []);
 
 	return (
 		// los comp hijos podrán acceder a todo los datos q esta en provider
-		<authContext.Provider value={{ signIn, user }}>
+		<authContext.Provider value={{ signIn, user, userData }}>
 			{children}
 		</authContext.Provider>
 	);

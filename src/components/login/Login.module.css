@@ -1,3 +1,11 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+}
 .logoContainer {
 	display: flex;
 	flex-direction: column;
@@ -8,13 +16,15 @@
 	width: 225px;
 	align-self: center;
 }
+
 form {
-	margin: 15%;
+	margin: 20px auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 5px;
 }
+
 h1 {
 	color: #003da5;
 	font-weight: bold;
@@ -29,27 +39,46 @@ h1 {
 
 .link {
 	margin: 5%;
-  color:#003da5;
-  font-weight: bold;
 }
 
-.submitBtn {
+.submitBtn,
+.submitBtn1 {
 	color: #ffffff;
 	background-color: #003da5;
-	width: 300px;
+	width: 270px;
 	height: 50px;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 16px;
 	border-radius: 25px;
 	box-shadow: none;
-	margin: 5%;
+	margin: 3%;
+	cursor: pointer;
+	text-align: center;
+	border: none;
 }
-
+.submitBtn1 {
+	background-color: #4f758b;
+	display: flex;
+	margin: 15px;
+	padding: 7px;
+}
 .submitBtn:hover {
-	background-color: #ffffff;
+	background-color: #41b6e6;
 	color: #003da5;
 }
+.submitBtn1:hover {
+	background-color: #a6bbc8;
+	color: #4f758b;
+}
 
+.imgIco {
+	width: 33px;
+	margin-left: 10px;
+}
+
+.divTxt {
+	padding: 10px;
+}
 #container {
 	background: rgba(63, 46, 158, 0.9);
 	position: fixed;
@@ -75,4 +104,19 @@ h1 {
 	transition: all 0.5s;
 	padding: 5%;
 	border-radius: 5%;
+}
+/* p{
+	visibility: hidden;
+} */
+@media (min-width: 400px) {
+	form {
+		margin: auto;
+	}
+	.submitBtn,
+	.submitBtn1 {
+		margin: 20px;
+	}
+	.link {
+		margin: 10px;
+	}
 }

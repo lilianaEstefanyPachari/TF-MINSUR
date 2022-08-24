@@ -1,11 +1,4 @@
-import {
-	doc,
-	getDoc,
-	collection,
-	orderBy,
-	getDocs,
-	onSnapshot,
-} from 'firebase/firestore';
+import { doc, getDoc, collection, orderBy, getDocs } from 'firebase/firestore';
 import { db } from './firebase_config.js';
 
 // traer data de usuario
@@ -29,8 +22,13 @@ export const getBenefitsQuerySnapshot = async () => {
 		orderBy('IdBenef', 'desc')
 	);
 	return querySnapshot;
-	// const dataBenefits = [];
-	// querySnapshot.forEach(doc => {
-	// 	dataBenefits.push(doc.data());
-	// });
+};
+
+// data de programas
+export const getProgramsQuerySnapshot = async () => {
+	const querySnapshot = await getDocs(
+		collection(db, 'programas'),
+		orderBy('IdBenef', 'desc')
+	);
+	return querySnapshot;
 };

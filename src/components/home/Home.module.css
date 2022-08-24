@@ -1,5 +1,6 @@
 .container {
 	background-color: #003da5;
+	min-height: 100vh;
 }
 .greetings {
 	color: #ffffff;
@@ -19,19 +20,6 @@
 	color: #cacaca;
 	/* border-bottom: 3px solid #003da5; */
 }
-/* .proyects{
-	font-weight: 500;
-	font-size: 20px;
-	text-align: center;
-	color: #4f758b;
-	border-bottom: 3px solid #003da5;
-}
-.projects {
-	font-weight: 500;
-	font-size: 20px;
-	text-align: center;
-	color: #cacaca;
-} */
 .BenefitBtns {
 	width: 145px;
 	height: 140px;

@@ -11,6 +11,7 @@ import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import { es } from 'date-fns/locale';
 import isWeekend from 'date-fns/isWeekend';
 import TextField from '@mui/material/TextField';
+import Greetings from '../greetings/greetings';
 
 const BirthdayCoupon = () => {
 	const [value, setValue] = React.useState(new Date());
@@ -24,23 +25,8 @@ const BirthdayCoupon = () => {
 				<Stack>
 					<Nav></Nav>
 				</Stack>
-				<Stack
-					direction='row'
-					sx={{
-						height: '90px',
-						justifyContent: 'center',
-						alignItems: 'center',
-						padding: '10px',
-					}}
-				>
-					<p className={styles.greetings}>
-						Hola, <span>usuario!</span>
-					</p>
-					<NotificationsNoneIcon
-						fontSize='large'
-						sx={{ color: '#FFFFFF', margin: '3px' }}
-					/>
-				</Stack>
+
+				<Greetings />
 
 				<Stack sx={{ background: '#FFFFFF', borderRadius: '20px 20px 0 0' }}>
 					<h3 className={styles.tittle}> Cupón medio día libre </h3>

@@ -20,7 +20,7 @@ const DescriptionBenefit = () => {
 			<div className={style.container}>
 				<div className={style.alcostado}>
 					<div className={style.boxFloating}>
-						<h4>50% de descuento</h4>
+						<h4>50% Dscto</h4>
 						<p>Cuenta sueldo</p>
 					</div>
 					<img src={vacio} alt='' />
@@ -30,7 +30,7 @@ const DescriptionBenefit = () => {
 						style={{ margin: 20, fontSize: 40, color: '#768998' }}
 					/>
 					<div>
-						<h3 style={{ color: '#003da5' }}>Nombre del descuento </h3>
+						<h3 className={style.benefitName}>Nombre del descuento</h3>
 						<p style={{ color: '#4F758B' }}>Descripción</p>
 						<button className={style.btnDetaills}>Ver detalle</button>
 					</div>

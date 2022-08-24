@@ -8,8 +8,8 @@
 .btnSelect{
     color: #003DA5;
     background: transparent;
-    border:none;
-    font-weight: bold;
+    border:none; 
+    font-weight: 800;
 }
 .topDescription{
     display: flex;
@@ -57,4 +57,18 @@
     color: white;
     font-size: 18px;
     margin: 5px 0 10px 0;
+}
+.boxFloating h3{
+    margin-top: 5px;
+}
+.boxFloating h4{
+    font-size: 22px;
+}
+.boxFloating p{
+    font-size: 13px;
+    margin-top: -5px;
+}
+.benefitName{
+    color: #003da5;
+    margin-top: 5px;
 }

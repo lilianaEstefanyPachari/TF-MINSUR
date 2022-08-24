@@ -37,32 +37,32 @@ const DescriptionBenefit = () => {
 				</select>
 			</div>
 			{filter.map(item => (
-				<>
-					<div className={style.container}>
-						<div className={style.alcostado}>
-							<div className={style.boxFloating}>
-								<h4>{item.desc}% Dscto</h4>
-								<p>Cuenta sueldo</p>
-							</div>
-							<img src={item.img} alt='' />
+				<div className={style.container} key={item.id}>
+					<div className={style.alcostado}>
+						<div className={style.boxFloating}>
+							<h4>{item.desc}% Dscto</h4>
+							<p>Cuenta sueldo</p>
 						</div>
-						<div className={style.descripBenefit}>
-							<AiOutlineHeart
-								style={{ margin: 20, fontSize: 40, color: '#768998' }}
-							/>
-							<div>
-								<h3 className={style.benefitName}>{item.name}</h3>
-								<p style={{ color: '#4F758B' }}>{item.description}</p>
-								<Link
-									to={`/Description/${item.id}`}
-									className={style.btnDetaills}
-								>
-									Ver detalle
-								</Link>
-							</div>
+						<img src={item.img} alt='Beneficio' />
+					</div>
+					<div className={style.descripBenefit}>
+						<AiOutlineHeart
+							style={{ margin: 20, fontSize: 40, color: '#768998' }}
+						/>
+						<div>
+							<h3 className={style.benefitName}>{item.name}</h3>
+							<p style={{ color: '#4F758B' }}>
+								{item.description.slice(0, 40) + '...'}
+							</p>
+							<Link
+								to={`/Description/${item.id}`}
+								className={style.btnDetaills}
+							>
+								Ver detalle
+							</Link>
 						</div>
 					</div>
-				</>
+				</div>
 			))}
 		</section>
 	);

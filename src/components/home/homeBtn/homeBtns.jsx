@@ -17,7 +17,7 @@ const HomeBtn = props => {
 					width: '70%',
 					height: '40px',
 					fontWeight: '700',
-					marginTop: '10px',
+					marginTop: '20px',
 				}}
 			>
 				{props.actionBtn}

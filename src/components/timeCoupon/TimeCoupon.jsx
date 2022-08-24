@@ -56,66 +56,68 @@ const TimeCoupon = () => {
 				/>
 			</Stack>
 
-			<Stack sx={{ background: '#FFFFFF', borderRadius: '20px 20px 0 0' }}>
-				<h3 className={styles.tittle}> Cupón medio día libre </h3>
-				<Divider />
-				<Box className={styles.formContainer} sx={{ minWidth: 120 }}>
-					<p className={styles.subtittle}> Elige fecha y horario </p>
-					<form onSubmit={submitForm}>
-						<InputLabel id='dateLabel'>Elige Fecha</InputLabel>
-						<LocalizationProvider dateAdapter={AdapterDateFns} locale={es}>
-							<StaticDatePicker
-								displayStaticWrapperAs='desktop'
-								orientation='portrait'
-								openTo='day'
-								value={value}
-								shouldDisableDate={isWeekend}
-								onChange={newValue => {
-									setValue(newValue);
-								}}
-								renderInput={params => <TextField {...params} />}
-							/>
-						</LocalizationProvider>
+			<div className={styles.container}>
+				<Stack sx={{ background: '#FFFFFF', borderRadius: '20px 20px 0 0' }}>
+					<h3 className={styles.tittle}> Cupón medio día libre </h3>
+					<Divider />
+					<Box className={styles.formContainer} sx={{ minWidth: 120 }}>
+						<p className={styles.subtittle}> Elige fecha y horario </p>
+						<form onSubmit={submitForm}>
+							<InputLabel id='dateLabel'>Elige Fecha</InputLabel>
+							<LocalizationProvider dateAdapter={AdapterDateFns} locale={es}>
+								<StaticDatePicker
+									displayStaticWrapperAs='desktop'
+									orientation='portrait'
+									openTo='day'
+									value={value}
+									shouldDisableDate={isWeekend}
+									onChange={newValue => {
+										setValue(newValue);
+									}}
+									renderInput={params => <TextField {...params} />}
+								/>
+							</LocalizationProvider>
 
-						<InputLabel>Horario</InputLabel>
-						<Select
-							sx={{
-								width: '300px',
-								color: '#003da5',
-								fontWeight: 'bold',
-							}}
-							id='selectYourTurn'
-							className={styles.selectInput}
-							value={turn}
-							onChange={handleChange}
-						>
-							<MenuItem
+							<InputLabel>Horario</InputLabel>
+							<Select
 								sx={{
+									width: '300px',
 									color: '#003da5',
 									fontWeight: 'bold',
 								}}
-								value={1}
+								id='selectYourTurn'
+								className={styles.selectInput}
+								value={turn}
+								onChange={handleChange}
 							>
-								Turno: 9:00 am - 1:00 pm
-							</MenuItem>
-							<MenuItem
-								sx={{
-									color: '#003da5',
-									fontWeight: 'bold',
-								}}
-								value={2}
-							>
-								Turno: 2:00 pm - 6:00 pm
-							</MenuItem>
-						</Select>
+								<MenuItem
+									sx={{
+										color: '#003da5',
+										fontWeight: 'bold',
+									}}
+									value={1}
+								>
+									Turno: 9:00 am - 1:00 pm
+								</MenuItem>
+								<MenuItem
+									sx={{
+										color: '#003da5',
+										fontWeight: 'bold',
+									}}
+									value={2}
+								>
+									Turno: 2:00 pm - 6:00 pm
+								</MenuItem>
+							</Select>
 
-						<button className={styles.submitBtn} type='submit'>
-							{' '}
-							Enviar solicitud{' '}
-						</button>
-					</form>
-				</Box>
-			</Stack>
+							<button className={styles.submitBtn} type='submit'>
+								{' '}
+								Enviar solicitud{' '}
+							</button>
+						</form>
+					</Box>
+				</Stack>
+			</div>
 		</div>
 	);
 };

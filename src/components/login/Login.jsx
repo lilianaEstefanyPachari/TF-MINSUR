@@ -8,7 +8,7 @@ import { useAuth } from '../../context/authContext';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import { loginMicrosoft } from '../../services/auth';
-import  Popup  from '../popups/Popup';
+import Popup from '../popups/Popup';
 
 // corrigiendo
 const Login = () => {
@@ -18,7 +18,7 @@ const Login = () => {
 	const [error, setError] = useState(null);
 	const { signIn } = useAuth();
 
-	const onSubmit = async (e) => {
+	const onSubmit = async e => {
 		e.preventDefault();
 		try {
 			await signIn(email, password);
@@ -53,13 +53,13 @@ const Login = () => {
 	// };
 
 	return (
-		<section>
+		<section className={style.container}>
 			<div className={style.logoContainer}>
 				<img className={style.logo} src={Logo} alt='Logo' />
 			</div>
 			<form onSubmit={onSubmit}>
 				{/* <h1>Ingresar</h1> */}
-				<TextField  
+				<TextField
 					onChange={e => {
 						setEmail(e.target.value);
 					}}
@@ -100,8 +100,15 @@ const Login = () => {
 				<button type='submit' className={style.submitBtn} onClick={onSubmit}>
 					Ingresar
 				</button>
-				<button type='submit' className={style.submitBtn1} onClick={loginMicrosoft}>
-					<img src={require('../../assets/Icono-microsoft.png')} className={style.imgIco}/>
+				<button
+					type='submit'
+					className={style.submitBtn1}
+					onClick={loginMicrosoft}
+				>
+					<img
+						src={require('../../assets/Icono-microsoft.png')}
+						className={style.imgIco}
+					/>
 					<div className={style.divTxt}> Ingresar con Microsoft</div>
 				</button>
 			</form>

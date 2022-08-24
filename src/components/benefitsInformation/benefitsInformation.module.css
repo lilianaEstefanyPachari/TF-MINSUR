@@ -1,0 +1,53 @@
+.sectionStyle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.benefitStyle img{
+    width:100%;
+}
+.benefitStyle p{
+    font-size: 12px;
+}
+.alcostado{
+    display: flex;
+    justify-content: flex-end;
+}
+.boxFloating{
+    text-align: center;
+    background-color: #41B6E6;
+    border-radius: 0px 0px 0px 10px;
+    color: white;
+    position: absolute;
+    width: 34%;
+    padding: 5px;
+    height: 70px;
+}
+.txtStyle p{
+    text-align: center;
+    font-size: 13px;
+    color: #4F758B;
+}
+.nameDsctoStyle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.iconsStyle{
+    display: flex;
+    align-items: center;
+}
+.useCouponBtn {
+	color: #ffffff;
+	background-color: #41B6E6;
+	width: 237px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 20px;
+	border-radius: 25px;
+	box-shadow: none;
+	margin: 5%;
+    cursor: pointer;
+    border: none;
+}

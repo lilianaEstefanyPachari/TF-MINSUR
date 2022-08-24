@@ -30,3 +30,25 @@
 	border-radius: 25px;
 	border: none;
 }
+@media (min-width: 400px) {
+	.container {
+		margin: auto;
+	}
+	.tittle {
+		font-size: 25px;
+		font-weight: bold;
+		color: #c4d600;
+		justify-content: center;
+		align-self: center;
+		margin: 20px;
+	}
+	.subtittle {
+		font-size: 20px;
+		font-weight: bold;
+		color: #003da5;
+		margin: 5% 0 0 20%;
+	}
+	#dateLabel {
+		margin-left: 0;
+	}
+}

@@ -8,6 +8,7 @@
 	width: 225px;
 	align-self: center;
 }
+
 form {
 	margin: 15%;
 	display: flex;
@@ -15,6 +16,7 @@ form {
 	align-items: center;
 	gap: 5px;
 }
+
 h1 {
 	color: #003da5;
 	font-weight: bold;
@@ -29,27 +31,46 @@ h1 {
 
 .link {
 	margin: 5%;
-  color:#003da5;
-  font-weight: bold;
 }
 
-.submitBtn {
+.submitBtn, .submitBtn1{
 	color: #ffffff;
 	background-color: #003da5;
 	width: 300px;
 	height: 50px;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 18px;
 	border-radius: 25px;
 	box-shadow: none;
 	margin: 5%;
+	cursor: pointer;
+	text-align: center;
+	border: none;
 }
-
-.submitBtn:hover {
-	background-color: #ffffff;
+.submitBtn1{
+	background-color: #4F758B;
+	display: flex;
+	margin: 15px;
+	padding: 7px;
+	
+}
+.submitBtn:hover{
+	background-color: #41B6E6;
 	color: #003da5;
 }
+.submitBtn1:hover{
+	background-color: #A6BBC8;
+	color: #4F758B;
+}
 
+.imgIco{
+	width: 33px;
+	margin-left: 10px;	
+}
+
+.divTxt{
+	padding: 10px;
+}
 #container {
 	background: rgba(63, 46, 158, 0.9);
 	position: fixed;
@@ -75,4 +96,18 @@ h1 {
 	transition: all 0.5s;
 	padding: 5%;
 	border-radius: 5%;
+}
+/* p{
+	visibility: hidden;
+} */
+@media (min-width: 400px) {
+form{
+	margin: auto;
+}
+.submitBtn, .submitBtn1{
+	margin: 20px;
+}
+.link {
+	margin: 10px;
+}
 }

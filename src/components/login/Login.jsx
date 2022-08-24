@@ -8,7 +8,8 @@ import { useAuth } from '../../context/authContext';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import { loginMicrosoft } from '../../services/auth';
-import Popup from '../popups/Popup';
+import  Popup  from '../popups/Popup';
+
 // corrigiendo
 const Login = () => {
 	const navigate = useNavigate();
@@ -16,7 +17,8 @@ const Login = () => {
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState(null);
 	const { signIn } = useAuth();
-	const onSubmit = async e => {
+
+	const onSubmit = async (e) => {
 		e.preventDefault();
 		try {
 			await signIn(email, password);
@@ -43,10 +45,13 @@ const Login = () => {
 			}
 		}
 	};
+
 	// const [popupActive, setPopupActive] = useState(false);
+
 	// const handleClose = () => {
-	//  setPopupActive(false);
+	// 	setPopupActive(false);
 	// };
+
 	return (
 		<section>
 			<div className={style.logoContainer}>
@@ -54,7 +59,7 @@ const Login = () => {
 			</div>
 			<form onSubmit={onSubmit}>
 				{/* <h1>Ingresar</h1> */}
-				<TextField
+				<TextField  
 					onChange={e => {
 						setEmail(e.target.value);
 					}}
@@ -95,25 +100,18 @@ const Login = () => {
 				<button type='submit' className={style.submitBtn} onClick={onSubmit}>
 					Ingresar
 				</button>
-				<button
-					type='submit'
-					className={style.submitBtn1}
-					onClick={loginMicrosoft}
-				>
-					<img
-						src={require('../../assets/Icono-microsoft.png')}
-						className={style.imgIco}
-					/>
+				<button type='submit' className={style.submitBtn1} onClick={loginMicrosoft}>
+					<img src={require('../../assets/Icono-microsoft.png')} className={style.imgIco}/>
 					<div className={style.divTxt}> Ingresar con Microsoft</div>
 				</button>
 			</form>
 			{/* <div id={style.container}>
-                <div id={style.modal}>
-                    <h2>Aviso</h2>
-                    <p> El usuario y/o contraseña no son correctos, vovler a intentar.</p>
-                    <button>Aceptar</button>
-                </div>
-            </div> */}
+				<div id={style.modal}>
+					<h2>Aviso</h2>
+					<p> El usuario y/o contraseña no son correctos, vovler a intentar.</p>
+					<button>Aceptar</button>
+				</div>
+			</div> */}
 			<p>{error}</p>
 			{error && <Popup>{error}</Popup>}
 		</section>

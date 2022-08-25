@@ -16,7 +16,6 @@ const DescriptionBenefit = () => {
 	};
 
 	const updateStatus = item => {
-		console.log(item.like);
 		if (item.like === true) {
 			updateFalse(item.id);
 		} else {
@@ -24,22 +23,17 @@ const DescriptionBenefit = () => {
 		}
 	};
 
-	const navigateHandler = route => {
-		console.log(route);
-		navigate(route);
-	};
-
 	useEffect(() => {
 		getCollection();
-		console.log(listDesc);
 	}, []);
+
 	const filterCategory = category => {
 		setFilter(listDesc.filter(x => x.category === category));
 	};
 	return (
 		<section>
 			<div className={style.topDescription}>
-				<button className={style.btnComeBack}>
+				<button onClick={navigate('/home')} className={style.btnComeBack}>
 					<MdKeyboardArrowLeft style={{ fontSize: 20 }} /> Regresar
 				</button>
 				<select
@@ -82,7 +76,10 @@ const DescriptionBenefit = () => {
 							>
 								{item.description.slice(0, 40) + '...'}
 							</p>
-							<Link to={'/benefitsInformation'} className={style.btnDetaills}>
+							<Link
+								to={`/benefitsInformation/${item.id}`}
+								className={style.btnDetaills}
+							>
 								Ver detalle
 							</Link>
 						</div>

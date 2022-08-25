@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import vacio from '../../assets/vacio.jpg';
 import { AiFillHeart, AiOutlineCheck } from 'react-icons/ai';
 import {
 	BsPlusLg,
@@ -10,10 +9,9 @@ import style from './benefitsInformation.module.css';
 import { FaCalendarAlt, FaCcMastercard, FaCcVisa } from 'react-icons/fa';
 import { HiIdentification } from 'react-icons/hi';
 import { getOrder, updateTrue, updateFalse } from '../../services/firestore';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const BenefitsInformation = () => {
-	const { id } = useParams();
 	const [listDesc, setListDesc] = useState([]);
 
 	const getCollection = () => {
@@ -21,7 +19,6 @@ const BenefitsInformation = () => {
 	};
 
 	const updateStatus = item => {
-		console.log(item.like);
 		if (item.like === true) {
 			updateFalse(item.id);
 		} else {
@@ -31,13 +28,12 @@ const BenefitsInformation = () => {
 
 	useEffect(() => {
 		getCollection();
-		console.log(listDesc);
 	}, []);
 
 	return (
 		<>
 			{listDesc.map(desc => (
-				<section className={style.sectionStyle} key={desc.id}>
+				<section className={style.sectionStyle} key={desc.id} name={desc.id}>
 					<div className={style.benefitStyle}>
 						<div className={style.alcostado}>
 							<div className={style.boxFloating}>

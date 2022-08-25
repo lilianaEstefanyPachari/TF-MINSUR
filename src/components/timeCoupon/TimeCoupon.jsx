@@ -29,6 +29,10 @@ const TimeCoupon = () => {
 	const [textReq, setTextReq] = React.useState('');
 	const [showModal, setShowModal] = React.useState(false);
 
+	const handleMessageChange = event => {
+		setTextReq(event.target.value);
+		console.log(event.target.value);
+	};
 	const handleChange = event => {
 		setTurn(event.target.value);
 	};
@@ -43,7 +47,9 @@ const TimeCoupon = () => {
 			from: 'fparodig@gmail.com', // Use the email address or domain you verified above
 			subject: 'Solicitando permiso de medio día',
 			text: `Hola! Estoy solicitando permiso para ${value} en el turno ${turn}. Muchas gracias.`,
-			html: `Hola! Estoy solicitando permiso para ${value} en el turno ${turn}. Muchas gracias.`,
+			html: `Hola! Estoy solicitando permiso para ${value} 
+			en el turno ${turn}. Muchas gracias.
+			Motivo: ${textReq}`,
 		};
 		await SendEmail(msg);
 
@@ -127,7 +133,10 @@ const TimeCoupon = () => {
 											</AccordionSummary>
 											<AccordionDetails>
 												<TextareaAutosize
+													id='textReq'
+													name='textReq'
 													value={textReq}
+													onChange={handleMessageChange}
 													aria-label='minimum height'
 													minRows={3}
 													placeholder='Explica tu motivo'

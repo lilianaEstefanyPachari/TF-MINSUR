@@ -32,6 +32,7 @@ const Login = () => {
 			localStorage.setItem('IdUser', response2.IdUser);
 			localStorage.setItem('EmailUser', response2.Email);
 			localStorage.setItem('ÍdUserJefe', response2.IdUserJefe);
+			sessionStorage.setItem('Nombres', response2.Nombres);
 
 			navigate('/home');
 		} catch (error) {
@@ -118,10 +119,10 @@ const Login = () => {
 				{error && <Popup>{error}</Popup>}
 			</section>
 			<section className={style.bgLogin}>
-				<img src={imgLogin} alt=""/>
+				<img src={imgLogin} alt='' />
 				<div className={style.vantage}>
 					<div className={style.vantageTitle}>
-					<h2>¡Bienvenido a fast!</h2>
+						<h2>¡Bienvenido a fast!</h2>
 					</div>
 					<ul>
 						<li>Crea colecciones</li>

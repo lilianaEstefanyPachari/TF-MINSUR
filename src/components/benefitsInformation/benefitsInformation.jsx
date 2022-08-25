@@ -30,7 +30,6 @@ const BenefitsInformation = () => {
 	};
 
 	const handlePopUp = () => {
-		console.log('solicitud ...');
 		setError(!error);
 	};
 
@@ -291,13 +290,7 @@ const BenefitsInformation = () => {
 						>
 							Usar cupón
 						</button>
-						{error && (
-							<Popup>
-								{
-									'Cupon solicitado, Recursos humanos se pondra en contacto con usted'
-								}
-							</Popup>
-						)}
+						{error && <Popup>{'Cupon solicitado - vigencia de 2 dias'}</Popup>}
 					</section>
 				))}
 		</>

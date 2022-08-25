@@ -4,6 +4,9 @@ import {
 	collection,
 	orderBy,
 	getDocs,
+	onSnapshot,
+	updateDoc,
+
 	query,
 	where,
 } from 'firebase/firestore';
@@ -86,3 +89,19 @@ export const getBossById = async userId => {
 		console.log(doc.id, ' => ', doc.data());
 	});
 };
+
+export const getOrder = setOrders => {
+	onSnapshot(collection(db, 'cuponesdesc'), snapshot =>
+		setOrders(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+	);
+};
+
+export const updateTrue = async id => {
+	const collectionRef = doc(db, 'cuponesdesc', id);
+	updateDoc(collectionRef, { like: true });
+};
+export const updateFalse = async id => {
+	const collectionRef = doc(db, 'cuponesdesc', id);
+	updateDoc(collectionRef, { like: false });
+};
+

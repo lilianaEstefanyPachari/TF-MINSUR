@@ -50,13 +50,13 @@
     justify-content: flex-end;
 }
 .btnDetaills{
-    background: #003DA5;
-    padding: 3px;
+    background-color: #003DA5;
+    padding: 2px 14px;
     width: 70%;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 15px;
     border: none;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     margin: 5px 0 10px 0;
     text-decoration-line: none;
 }
@@ -73,10 +73,4 @@
 .benefitName{
     color: #003da5;
     margin-top: 5px;
-}
-@media (min-width: 700px) and (orientation: landscape){
-    .container{
-        
-        
-    } 
 }

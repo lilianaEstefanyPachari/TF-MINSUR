@@ -34,3 +34,17 @@ export const getBenefitsQuerySnapshot = async () => {
 	// 	dataBenefits.push(doc.data());
 	// });
 };
+
+// asignar un uid a un usuario
+
+export const getEmployeesDocument = async idDoc => {
+	const docRefEmployees = doc(db, 'colaboradores', idDoc);
+	const docSnapEmployees = await getDoc(docRefEmployees);
+
+	if (docSnapEmployees.exists()) {
+		console.log('Document data:', docSnapEmployees.data());
+	} else {
+		// doc.data() will be undefined in this case
+		console.log('No such document!');
+	}
+};

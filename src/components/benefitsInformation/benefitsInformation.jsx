@@ -13,6 +13,8 @@ import { Link, useParams } from 'react-router-dom';
 import Popup from '../popups/Popup';
 
 const BenefitsInformation = () => {
+	const params = useParams()
+	console.log(params)
 	const [listDesc, setListDesc] = useState([]);
 	const [error, setError] = useState(false);
 	const params = useParams();

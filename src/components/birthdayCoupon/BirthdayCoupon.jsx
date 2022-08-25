@@ -11,15 +11,17 @@ import { es } from 'date-fns/locale';
 import isWeekend from 'date-fns/isWeekend';
 import TextField from '@mui/material/TextField';
 import Greetings from '../greetings/greetings';
+import Popup from '../../components/popups/Popup';
 import { SendEmail } from '../../services/sendgrid';
 
 const BirthdayCoupon = () => {
 	const [value, setValue] = React.useState(new Date());
+	const [showModal, setShowModal] = React.useState(false);
 
 	const submitFormBirthday = async e => {
 		e.preventDefault();
-		console.log(value);
 
+		// email body
 		const msg = {
 			to: 'nay.trevejo@gmail.com',
 			from: 'fparodig@gmail.com', // Use the email address or domain you verified above
@@ -28,9 +30,9 @@ const BirthdayCoupon = () => {
 			html: `Hola! Estoy solicitando permiso para el día ${value} por motivo de mi cumpleaños. Muchas gracias.`,
 		};
 
-		console.log('Before Email');
 		await SendEmail(msg);
-		console.log('After Email');
+
+		setShowModal(!showModal);
 	};
 
 	return (
@@ -66,6 +68,11 @@ const BirthdayCoupon = () => {
 								{' '}
 								Enviar solicitud{' '}
 							</button>
+							{showModal && (
+								<Popup>
+									{'¡Tu solicitud fue enviada con éxito al jefe de tu área!'}{' '}
+								</Popup>
+							)}
 						</form>
 					</Box>
 				</Stack>

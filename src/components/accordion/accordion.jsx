@@ -14,6 +14,9 @@ export function SimpleAccordion({
 	description,
 	actionBtn,
 	actionBtns,
+	navigateHandler,
+	navigateHandlerTimecoupon,
+	navigateHandlerBirthday,
 }) {
 	return (
 		<Accordion sx={{ padding: '10px' }}>
@@ -40,8 +43,18 @@ export function SimpleAccordion({
 				>
 					{description}
 				</Typography>
-				{actionBtn && <HomeBtn actionBtn={actionBtn}></HomeBtn>}
-				{actionBtns && <HomeBtns></HomeBtns>}
+				{actionBtn && (
+					<HomeBtn
+						actionBtn={actionBtn}
+						navigateHandler={navigateHandler}
+					></HomeBtn>
+				)}
+				{actionBtns && (
+					<HomeBtns
+						navigateHandlerTimecoupon={navigateHandlerTimecoupon}
+						navigateHandlerBirthday={navigateHandlerBirthday}
+					></HomeBtns>
+				)}
 			</AccordionDetails>
 		</Accordion>
 	);

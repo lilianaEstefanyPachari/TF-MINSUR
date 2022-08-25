@@ -43,7 +43,7 @@ const BirthdayCoupon = () => {
 				</Stack>
 
 				<Stack sx={{ background: '#FFFFFF', borderRadius: '20px 20px 0 0' }}>
-					<h3 className={styles.tittle}> Cupón medio día libre </h3>
+					<h3 className={styles.tittle}> Cupón día libre </h3>
 					<Divider />
 					<Box className={styles.formContainer} sx={{ minWidth: 120 }}>
 						<p className={styles.subtittle}> Elige fecha </p>

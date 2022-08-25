@@ -19,6 +19,13 @@
     display: flex;
     justify-content: flex-end;
 }
+.backHeader {
+	background: #41b6e6;
+	padding: 10px;
+	border-radius: 0 0 0 15px;
+	color: #ffffff;
+	font-size: 0.8em;
+}
 .title{
     color:#003DA5;
     margin: 15px;
@@ -55,4 +62,11 @@
     margin: 10px;
     margin-left: 50%;
     transform: translateX(-50%);
+}
+
+@media (min-width: 1024px) {
+	.container {
+		justify-content: space-between;
+		min-height: 100vh;
+	}
 }

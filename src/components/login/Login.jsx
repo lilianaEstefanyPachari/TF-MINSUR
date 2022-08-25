@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import { loginMicrosoft } from '../../services/auth';
 import Popup from '../popups/Popup';
+import { getEmployeeByUid } from '../../services/firestore';
 
 // corrigiendo
 const Login = () => {
@@ -21,7 +22,15 @@ const Login = () => {
 	const handleEmailAndPassword = async e => {
 		e.preventDefault();
 		try {
-			await signIn(email, password);
+			const response = await signIn(email, password);
+			console.log(response);
+			const response2 = await getEmployeeByUid(response.user.uid);
+			console.log(response2);
+
+			localStorage.setItem('IdUser', response2.IdUser);
+			localStorage.setItem('EmailUser', response2.Email);
+			localStorage.setItem('ÍdUserJefe', response2.IdUserJefe);
+
 			navigate('/home');
 		} catch (error) {
 			navigate('/');

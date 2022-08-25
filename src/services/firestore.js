@@ -6,6 +6,8 @@ import {
 	getDocs,
 	onSnapshot,
 	updateDoc,
+	query,
+	where,
 } from 'firebase/firestore';
 import { db } from './firebase_config.js';
 
@@ -53,6 +55,37 @@ export const getEmployeesDocument = async idDoc => {
 		// doc.data() will be undefined in this case
 		console.log('No such document!');
 	}
+};
+
+export const getEmployeeByUid = async uid => {
+	console.log('Start getEmployeeByUid', uid);
+
+	const employeeRef = collection(db, 'colaboradores');
+	const employeeQuery = query(employeeRef, where('uid', '==', uid));
+
+	let response = {};
+
+	console.log('query done');
+
+	const querySnapshot = await getDocs(employeeQuery);
+
+	querySnapshot.forEach(doc => {
+		console.log(doc.id, ' => ', doc.data());
+		response = doc.data();
+	});
+
+	return response;
+};
+
+export const getBossById = async userId => {
+	const employeeRef = collection(db, 'colaboradores');
+	const employeeQuery = query(employeeRef, where('IdUser', '==', userId));
+
+	const querySnapshot = await getDocs(employeeQuery);
+
+	querySnapshot.forEach(doc => {
+		console.log(doc.id, ' => ', doc.data());
+	});
 };
 
 export const getOrder = setOrders => {

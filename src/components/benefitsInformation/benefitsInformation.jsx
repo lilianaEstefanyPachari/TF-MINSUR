@@ -10,9 +10,11 @@ import { FaCalendarAlt, FaCcMastercard, FaCcVisa } from 'react-icons/fa';
 import { HiIdentification } from 'react-icons/hi';
 import { getOrder, updateTrue, updateFalse } from '../../services/firestore';
 import { Link } from 'react-router-dom';
+import Popup from '../popups/Popup';
 
 const BenefitsInformation = () => {
 	const [listDesc, setListDesc] = useState([]);
+	const [error, setError] = useState(false);
 
 	const getCollection = () => {
 		getOrder(setListDesc);
@@ -24,6 +26,11 @@ const BenefitsInformation = () => {
 		} else {
 			updateTrue(item.id);
 		}
+	};
+
+	const handlePopUp = () => {
+		console.log('solicitud ...');
+		setError(!error);
 	};
 
 	useEffect(() => {
@@ -261,7 +268,16 @@ const BenefitsInformation = () => {
 							{desc.aplica2}
 						</p>
 					</div>
-					<button className={style.useCouponBtn}>Usar cupón</button>
+					<button onClick={() => handlePopUp()} className={style.useCouponBtn}>
+						Usar cupón
+					</button>
+					{error && (
+						<Popup>
+							{
+								'Cupon solicitado, Recursos humanos se pondra en contacto con usted'
+							}
+						</Popup>
+					)}
 				</section>
 			))}
 		</>

@@ -22,7 +22,9 @@ const DescriptionBenefit = () => {
 			updateTrue(item.id);
 		}
 	};
-
+	const redirec = () => {
+		navigate('/home');
+	};
 	useEffect(() => {
 		getCollection();
 	}, []);
@@ -33,7 +35,7 @@ const DescriptionBenefit = () => {
 	return (
 		<section>
 			<div className={style.topDescription}>
-				<button onClick={navigate('/home')} className={style.btnComeBack}>
+				<button className={style.btnComeBack}>
 					<MdKeyboardArrowLeft style={{ fontSize: 20 }} /> Regresar
 				</button>
 				<select

@@ -6,7 +6,10 @@ import { useAuth } from '../../context/authContext';
 const Greetings = () => {
 	// obteniendo nombre del usuario
 	let userName;
+	// const showName = sessionStorage.getItem('Nombres');
+
 	const { userData } = useAuth();
+	console.log('aqui empieza greetings');
 	if (userData) {
 		userName = userData.Nombres;
 	}

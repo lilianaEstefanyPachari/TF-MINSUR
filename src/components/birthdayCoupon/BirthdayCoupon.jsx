@@ -11,13 +11,28 @@ import { es } from 'date-fns/locale';
 import isWeekend from 'date-fns/isWeekend';
 import TextField from '@mui/material/TextField';
 import Greetings from '../greetings/greetings';
+import { SendEmail } from '../../services/sendgrid';
 
 const BirthdayCoupon = () => {
 	const [value, setValue] = React.useState(new Date());
-	const submitFormBirthday = e => {
+
+	const submitFormBirthday = async e => {
 		e.preventDefault();
 		console.log(value);
+
+		const msg = {
+			to: 'nay.trevejo@gmail.com',
+			from: 'fparodig@gmail.com', // Use the email address or domain you verified above
+			subject: 'Solicitando permiso de Cumpleaños',
+			text: `Hola! Estoy solicitando permiso para el día ${value} por motivo de mi cumpleaños. Muchas gracias.`,
+			html: `Hola! Estoy solicitando permiso para el día ${value} por motivo de mi cumpleaños. Muchas gracias.`,
+		};
+
+		console.log('Before Email');
+		await SendEmail(msg);
+		console.log('After Email');
 	};
+
 	return (
 		<>
 			<div className={styles.container}>

@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './components/home/Home';
+import Login from './components/login/Login';
+import TimeCoupon from './components/timeCoupon/TimeCoupon';
+import BirthdayCoupon from './components/birthdayCoupon/BirthdayCoupon';
+import { AuthProvider } from './context/authContext';
+import DetailBenefit from './components/detailBenefit/DetailBenefit';
+import BenefitsInformation from './components/benefitsInformation/benefitsInformation';
+import { BenefitsProvider } from './context/benefitContext';
+import DescriptionBenefit from './components/DescriptionBenefit/DescriptionBenefit';
 function App() {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'
-				>
-					Learn React
-				</a>
-			</header>
-		</div>
+		<>
+			<AuthProvider>
+				<BenefitsProvider>
+					<BrowserRouter>
+						<Routes>
+							<Route path='/' element={<Login />} />
+							<Route path='/home' element={<Home />} />
+							<Route path='/benefits' element={<DetailBenefit />} />
+							<Route path='/timecoupon' element={<TimeCoupon />} />
+							<Route path='/birthdaycoupon' element={<BirthdayCoupon />} />
+							<Route
+								path='/benefitsInformation'
+								element={<BenefitsInformation />}
+							/>
+							<Route path='/description' element={<DescriptionBenefit />} />
+						</Routes>
+					</BrowserRouter>
+				</BenefitsProvider>
+			</AuthProvider>
+		</>
 	);
 }
 

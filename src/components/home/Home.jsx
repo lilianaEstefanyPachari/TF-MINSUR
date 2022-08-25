@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Home.module.css';
 import { Stack } from '@mui/material';
 import Nav from '../nav/Nav';
@@ -6,16 +6,15 @@ import { SimpleAccordion } from '../accordion/accordion';
 import Greetings from '../greetings/greetings';
 import { useNavigate } from 'react-router-dom';
 
-import {
-	getBenefitsQuerySnapshot,
-	getProgramsQuerySnapshot,
-} from '../../services/firestore';
+import { useBenefits } from '../../context/benefitContext';
+import Navbar from '../nav/nav2';
 
 const Home = () => {
-	// simulando data para props
+	// obteniendo data de beneficios y projectos
+	const { benefitsData, programsData } = useBenefits();
+
 	const navigate = useNavigate();
-	const [benefitsData, setBenefitsData] = useState([]);
-	const [programsData, setProgramsData] = useState([]);
+
 	let timeCupons = null;
 	let otherBenefits = null;
 	let educationPrograms = null;
@@ -33,38 +32,13 @@ const Home = () => {
 		navigate(route);
 	};
 
-	// obteniendo beneficios de data
-	useEffect(() => {
-		const getBenefitsAndPrograms = async () => {
-			try {
-				const querySnapshotBenefits = await getBenefitsQuerySnapshot();
-				const querySnapshotPrograms = await getProgramsQuerySnapshot();
-				const benefits = [];
-				const programs = [];
-				querySnapshotBenefits.forEach(doc => {
-					benefits.push({ ...doc.data(), id: doc.id });
-				});
-				setBenefitsData(benefits);
-				querySnapshotPrograms.forEach(doc => {
-					programs.push({ ...doc.data(), id: doc.id });
-				});
-				setProgramsData(programs);
-				console.log(benefits);
-				console.log(programs);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		getBenefitsAndPrograms();
-	}, []);
-
 	// manejando vistas
 	const [stateViewOptions, setStateViewOptions] = useState(true);
 	const viewOptionsController = () => setStateViewOptions(true);
 	return (
 		<div className={styles.container}>
 			<Stack>
-				<Nav></Nav>
+				<Navbar></Navbar>
 			</Stack>
 
 			<Greetings></Greetings>
@@ -74,6 +48,8 @@ const Home = () => {
 					background: '#FFFFFF',
 					borderRadius: '20px 20px 0 0',
 					paddingBottom: '15px',
+					minHeight: '75vh',
+					paddingTop: '8px',
 				}}
 			>
 				<Stack
@@ -131,7 +107,7 @@ const Home = () => {
 							<SimpleAccordion
 								navigateHandlerTimecoupon={() => navigateHandler('/home')}
 								navigateHandlerBirthday={() => navigateHandler('/home')}
-								actionBtns={true}
+								actionBtnsBeca={true}
 								src={educationPrograms[0].icon}
 								title='Educación'
 								description={educationPrograms[0].DescPrograma}

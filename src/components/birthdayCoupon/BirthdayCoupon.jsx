@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './BirthdayCoupon.module.css';
 import Nav from '../nav/Nav';
 import Stack from '@mui/material/Stack';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -25,11 +24,11 @@ const BirthdayCoupon = () => {
 				<Stack>
 					<Nav></Nav>
 				</Stack>
-
-				<Greetings />
-
+				<Stack>
+					<Greetings />
+				</Stack>
 				<Stack sx={{ background: '#FFFFFF', borderRadius: '20px 20px 0 0' }}>
-					<h3 className={styles.tittle}> Cupón día libre </h3>
+					<h3 className={styles.tittle}> Cupón de cumpleaños </h3>
 					<Divider />
 					<Box className={styles.formContainer} sx={{ minWidth: 120 }}>
 						<p className={styles.subtittle}> Elige fecha </p>

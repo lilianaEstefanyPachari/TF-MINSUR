@@ -33,6 +33,7 @@ const firebaseConfig = {
 	storageBucket: 'minsur2.appspot.com',
 	messagingSenderId: '678412895264',
 	appId: '1:678412895264:web:2bd62ea8cf3e1df6306845',
+
 };
 
 // Initialize Firebase

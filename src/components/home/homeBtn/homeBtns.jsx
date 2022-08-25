@@ -9,6 +9,7 @@ const HomeBtn = props => {
 	return (
 		<Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
 			<Button
+				onClick={props.navigateHandler}
 				style={{ textTransform: 'none' }}
 				variant='contained'
 				sx={{
@@ -17,7 +18,7 @@ const HomeBtn = props => {
 					width: '70%',
 					height: '40px',
 					fontWeight: '700',
-					marginTop: '10px',
+					marginTop: '20px',
 				}}
 			>
 				{props.actionBtn}
@@ -26,7 +27,7 @@ const HomeBtn = props => {
 	);
 };
 
-const HomeBtns = () => {
+const HomeBtns = props => {
 	return (
 		<Stack
 			direction='row'
@@ -36,7 +37,10 @@ const HomeBtns = () => {
 				marginTop: '8px',
 			}}
 		>
-			<button className={`${styles.BenefitBtns} ${styles.btnColor}`}>
+			<button
+				onClick={props.navigateHandlerTimecoupon}
+				className={`${styles.BenefitBtns} ${styles.btnColor}`}
+			>
 				<Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
 					<CardMedia
 						component='img'
@@ -46,7 +50,10 @@ const HomeBtns = () => {
 					<p>Solicita aquí tu cupón de medio día libre</p>
 				</Stack>
 			</button>
-			<button className={`${styles.BenefitBtns} ${styles.btnColor2}`}>
+			<button
+				onClick={props.navigateHandlerBirthday}
+				className={`${styles.BenefitBtns} ${styles.btnColor2}`}
+			>
 				<Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
 					<CardMedia
 						component='img'

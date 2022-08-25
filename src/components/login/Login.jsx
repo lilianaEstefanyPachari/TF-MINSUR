@@ -22,8 +22,9 @@ const Login = () => {
 		e.preventDefault();
 		try {
 			await signIn(email, password);
-			navigate('/');
+			navigate('/home');
 		} catch (error) {
+			navigate('/');
 			switch (error.code) {
 				case '':
 					setError('Campos vacíos. Ingrese correo y contraseña');
@@ -94,10 +95,7 @@ const Login = () => {
 				<button className={style.submitBtn} onClick={handleEmailAndPassword}>
 					Ingresar
 				</button>
-				<button
-					className={style.submitBtn1}
-					onClick={loginMicrosoft}
-				>
+				<button className={style.submitBtn1} onClick={loginMicrosoft}>
 					<img
 						src={require('../../assets/Icono-microsoft.png')}
 						className={style.imgIco}

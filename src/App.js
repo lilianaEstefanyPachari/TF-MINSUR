@@ -16,9 +16,15 @@ function App() {
 					<Routes>
 						<Route path='/' element={<Login />} />
 						<Route path='/home' element={<Home />} />
+						<Route path='/benefits' element={<DetailBenefit />} />
+						<Route path='/timecoupon' element={<TimeCoupon />} />
+						<Route path='/birthdaycoupon' element={<BirthdayCoupon />} />
+						<Route
+							path='/benefitsInformation'
+							element={<BenefitsInformation />}
+						/>
 						<Route path='/Description' element={<DescriptionBenefit />} />
 						<Route path='/Description:id' element={<BenefitsInformation />} />
-						<Route path='/Information' element={<BenefitsInformation />} />
 					</Routes>
 				</BrowserRouter>
 			</AuthProvider>

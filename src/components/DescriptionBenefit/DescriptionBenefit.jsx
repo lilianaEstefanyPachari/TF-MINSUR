@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart } from 'react-icons/ai';
 import style from './DescriptionBenefit.module.css';
 import { getOrder, updateTrue, updateFalse } from '../../services/firestore';
 import { useNavigate, Link } from 'react-router-dom';
@@ -16,7 +16,6 @@ const DescriptionBenefit = () => {
 	};
 
 	const updateStatus = item => {
-		console.log(item.like);
 		if (item.like === true) {
 			updateFalse(item.id);
 		} else {
@@ -24,22 +23,17 @@ const DescriptionBenefit = () => {
 		}
 	};
 
-	const navigateHandler = route => {
-		console.log(route);
-		navigate(route);
-	};
-
 	useEffect(() => {
 		getCollection();
-		console.log(listDesc);
 	}, []);
+
 	const filterCategory = category => {
 		setFilter(listDesc.filter(x => x.category === category));
 	};
 	return (
 		<section>
 			<div className={style.topDescription}>
-				<button className={style.btnComeBack}>
+				<button onClick={navigate('/home')} className={style.btnComeBack}>
 					<MdKeyboardArrowLeft style={{ fontSize: 20 }} /> Regresar
 				</button>
 				<select
@@ -61,7 +55,7 @@ const DescriptionBenefit = () => {
 						<img src={item.img} alt='Beneficio' />
 					</div>
 					<div className={style.descripBenefit}>
-						<AiOutlineHeart
+						<AiFillHeart
 							onClick={() => {
 								updateStatus(item);
 							}}
@@ -76,7 +70,10 @@ const DescriptionBenefit = () => {
 							<p style={{ color: '#4F758B' }}>
 								{item.description.slice(0, 40) + '...'}
 							</p>
-							<Link to={'/benefitsInformation'} className={style.btnDetaills}>
+							<Link
+								to={`/benefitsInformation/${item.id}`}
+								className={style.btnDetaills}
+							>
 								Ver detalle
 							</Link>
 						</div>

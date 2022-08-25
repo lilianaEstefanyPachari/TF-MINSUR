@@ -22,7 +22,9 @@ const DescriptionBenefit = () => {
 			updateTrue(item.id);
 		}
 	};
-
+	const redirec = () => {
+		navigate('/home');
+	};
 	useEffect(() => {
 		getCollection();
 	}, []);

@@ -4,6 +4,7 @@ import { Stack } from '@mui/material';
 import Nav from '../nav/Nav';
 import { SimpleAccordion } from '../accordion/accordion';
 import Greetings from '../greetings/greetings';
+import { useNavigate } from 'react-router-dom';
 
 import {
 	getBenefitsQuerySnapshot,
@@ -12,7 +13,7 @@ import {
 
 const Home = () => {
 	// simulando data para props
-
+	const navigate = useNavigate();
 	const [benefitsData, setBenefitsData] = useState([]);
 	const [programsData, setProgramsData] = useState([]);
 	let timeCupons = null;
@@ -27,6 +28,10 @@ const Home = () => {
 		educationPrograms = programsData.filter(e => e.IdPrograma < 3);
 		otherPrograms = programsData.filter(e => e.IdPrograma >= 3);
 	}
+
+	const navigateHandler = route => {
+		navigate(route);
+	};
 
 	// obteniendo beneficios de data
 	useEffect(() => {
@@ -96,6 +101,10 @@ const Home = () => {
 					<Stack sx={{ padding: '10px' }}>
 						{timeCupons && (
 							<SimpleAccordion
+								navigateHandlerTimecoupon={() => navigateHandler('/timecoupon')}
+								navigateHandlerBirthday={() =>
+									navigateHandler('/birthdaycoupon')
+								}
 								actionBtns={true}
 								src={timeCupons[0].icon}
 								title='Cupones de tiempo libre'
@@ -105,6 +114,7 @@ const Home = () => {
 						{otherBenefits &&
 							otherBenefits.map(e => (
 								<SimpleAccordion
+									navigateHandler={() => navigateHandler(e.route)}
 									actionBtn='Ver detalle'
 									src={e.icon}
 									title={e.nombreBenef}
@@ -119,6 +129,8 @@ const Home = () => {
 					<Stack sx={{ padding: '10px' }}>
 						{educationPrograms && (
 							<SimpleAccordion
+								navigateHandlerTimecoupon={() => navigateHandler('/home')}
+								navigateHandlerBirthday={() => navigateHandler('/home')}
 								actionBtns={true}
 								src={educationPrograms[0].icon}
 								title='Educación'
@@ -128,6 +140,7 @@ const Home = () => {
 						{otherPrograms &&
 							otherPrograms.map(e => (
 								<SimpleAccordion
+									navigateHandler={() => navigateHandler(e.route)}
 									key={e.IdPrograma}
 									actionBtn='Ver detalle'
 									src={e.icon}

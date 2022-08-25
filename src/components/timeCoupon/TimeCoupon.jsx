@@ -20,13 +20,14 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-
+import Popup from '../../components/popups/Popup';
 import { SendEmail } from '../../services/sendgrid';
 
 const TimeCoupon = () => {
 	const [value, setValue] = React.useState(null);
 	const [turn, setTurn] = React.useState('');
 	const [textReq, setTextReq] = React.useState('');
+	const [showModal, setShowModal] = React.useState(false);
 
 	const handleChange = event => {
 		setTurn(event.target.value);
@@ -34,11 +35,8 @@ const TimeCoupon = () => {
 
 	const submitForm = async e => {
 		e.preventDefault();
-		console.log(e);
-		console.log(value);
-		console.log(turn);
 
-		console.log('hiciste click');
+		// sendgrid body email
 
 		const msg = {
 			to: 'nay.trevejo@gmail.com',
@@ -47,10 +45,9 @@ const TimeCoupon = () => {
 			text: `Hola! Estoy solicitando permiso para ${value} en el turno ${turn}. Muchas gracias.`,
 			html: `Hola! Estoy solicitando permiso para ${value} en el turno ${turn}. Muchas gracias.`,
 		};
-
-		console.log('Before Email');
 		await SendEmail(msg);
-		console.log('After Email');
+
+		setShowModal(!showModal);
 	};
 
 	return (
@@ -71,7 +68,6 @@ const TimeCoupon = () => {
 
 						<form onSubmit={submitForm}>
 							<div className={styles.internalContainers}>
-								{/* <InputLabel id='dateLabel'>Elige Fecha</InputLabel> */}
 								<LocalizationProvider dateAdapter={AdapterDateFns} locale={es}>
 									<StaticDatePicker
 										displayStaticWrapperAs='desktop'
@@ -146,6 +142,11 @@ const TimeCoupon = () => {
 								{' '}
 								Enviar solicitud{' '}
 							</button>
+							{showModal && (
+								<Popup>
+									{'¡Tu solicitud fue enviada con éxito al jefe de tu área!'}{' '}
+								</Popup>
+							)}
 						</form>
 					</Box>
 				</Stack>

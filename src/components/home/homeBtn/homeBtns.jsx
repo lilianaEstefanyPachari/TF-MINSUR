@@ -34,37 +34,43 @@ const HomeBtns = props => {
 		<Stack
 			direction='row'
 			sx={{
-				justifyContent: 'space-between',
-				alignItems: 'center',
+				justifyContent: 'space-around',
+				alignItems: 'right',
 				marginTop: '8px',
 			}}
 		>
-			<button
-				onClick={props.navigateHandlerTimecoupon}
-				className={`${styles.BenefitBtns} ${styles.btnColor}`}
-			>
-				<Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
-					<CardMedia
-						component='img'
-						image={btnImg}
-						sx={{ width: '45px', height: '45px', marginBottom: '9px' }}
-					/>
-					<p>Solicita aquí tu cupón de medio día libre</p>
-				</Stack>
-			</button>
-			<button
-				onClick={props.navigateHandlerBirthday}
-				className={`${styles.BenefitBtns} ${styles.btnColor2}`}
-			>
-				<Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
-					<CardMedia
-						component='img'
-						image={btnImg2}
-						sx={{ width: '45px', height: '45px', marginBottom: '9px' }}
-					/>
-					<p>Solicita aquí tu cupón de día libre por cumpleaños</p>
-				</Stack>
-			</button>
+			<div className={styles.divButtons}>
+				<div className={styles.button}>
+					<button
+						onClick={props.navigateHandlerTimecoupon}
+						className={`${styles.BenefitBtns} ${styles.btnColor}`}
+					>
+						<Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
+							<CardMedia
+								component='img'
+								image={btnImg}
+								sx={{ width: '45px', height: '45px', marginBottom: '9px' }}
+							/>
+							<p>Solicita aquí tu cupón de medio día libre</p>
+						</Stack>
+					</button>
+				</div>
+				<div className={styles.button}>
+					<button
+						onClick={props.navigateHandlerBirthday}
+						className={`${styles.BenefitBtns} ${styles.btnColor2}`}
+					>
+						<Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
+							<CardMedia
+								component='img'
+								image={btnImg2}
+								sx={{ width: '45px', height: '45px', marginBottom: '9px' }}
+							/>
+							<p>Solicita aquí tu cupón de día libre por cumpleaños</p>
+						</Stack>
+					</button>
+				</div>
+			</div>
 		</Stack>
 	);
 };

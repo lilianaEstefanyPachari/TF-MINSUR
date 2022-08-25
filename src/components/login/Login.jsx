@@ -122,12 +122,12 @@ const Login = () => {
 				<img src={imgLogin} alt='' />
 				<div className={style.vantage}>
 					<div className={style.vantageTitle}>
-						<h2>¡Bienvenido a fast!</h2>
+						<h2>¡Bienvenido a Minsur!</h2>
 					</div>
 					<ul>
-						<li>Crea colecciones</li>
-						<li>Estudia en la comunidad</li>
-						<li>Visualiza tus resultados</li>
+						<li>✓ Mira los beneficios que tenemos para tí</li>
+						<li>✓ Solicita los cupones disponibles</li>
+						<li>Tenemos los mejores programas para tu desarrollo</li>
 					</ul>
 				</div>
 			</section>

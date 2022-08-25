@@ -6,7 +6,8 @@ import TimeCoupon from './components/timeCoupon/TimeCoupon';
 import BirthdayCoupon from './components/birthdayCoupon/BirthdayCoupon';
 import { AuthProvider } from './context/authContext';
 import DetailBenefit from './components/detailBenefit/DetailBenefit';
-import BenefitsInformation from './components/benefitsInformation/benefitsInformation';
+import BenefitsInformation from './components/benefitsInformation/BenefitsInformation';
+import DescriptionBenefit from './components/DescriptionBenefit/DescriptionBenefit';
 function App() {
     return (
         <>
@@ -21,6 +22,10 @@ function App() {
                         <Route
                             path='/benefitsInformation'
                             element={<BenefitsInformation />}
+                        />
+						<Route
+                            path='/descriptionBenefit'
+                            element={<DescriptionBenefit />}
                         />
                     </Routes>
                 </BrowserRouter>

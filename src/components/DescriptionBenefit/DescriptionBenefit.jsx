@@ -48,11 +48,11 @@ const DescriptionBenefit = () => {
 						</div>
 						<div className={style.descripBenefit}>
 							<AiOutlineHeart
-								style={{ margin: 20, fontSize: 40, color: '#768998' }}
+								style={{ margin: 20, fontSize: 50, color: '#768998' }}
 							/>
 							<div>
 								<h3 className={style.benefitName}>{item.name}</h3>
-								<p style={{ color: '#4F758B' }}>{item.description}</p>
+								<p style={{ color: '#4F758B', marginBottom:5 }}>{item.description}</p>
 								<Link
 									to={`/Description/${item.id}`}
 									className={style.btnDetaills}

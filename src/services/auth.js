@@ -11,7 +11,7 @@ export const provider = new OAuthProvider('microsoft.com');
 export const signInUser = (email, password) =>
 	signInWithEmailAndPassword(auth, email, password);
 
-export const loginMicrosoft = (e) => {
+export const loginMicrosoft = e => {
 	e.preventDefault();
 	return signInWithPopup(auth, provider)
 		.then(result => {
@@ -23,7 +23,6 @@ export const loginMicrosoft = (e) => {
 		.catch(error => {
 			console.log(error);
 			console.log(error.stack);
-			console.loge(error.message);
+			console.log(error.message);
 		});
-
 };

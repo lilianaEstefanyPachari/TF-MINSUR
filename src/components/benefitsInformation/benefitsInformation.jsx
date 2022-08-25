@@ -70,6 +70,7 @@ const BenefitsInformation = () => {
 								fontSize: 14,
 								color: '#4F758B',
 								fontWeight: 'bold',
+								marginTop: 15,
 								marginLeft: 20,
 								marginRight: 20,
 							}}

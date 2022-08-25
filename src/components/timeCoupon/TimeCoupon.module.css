@@ -29,4 +29,43 @@
 	width: 220px;
 	border-radius: 25px;
 	border: none;
+	margin-bottom: 10%;
+}
+
+.motive {
+	font-size: 16px;
+	font-weight: bold;
+	color: #003da5;
+}
+
+@media (min-width: 600px) {
+	.container {
+		margin: auto;
+	}
+	.tittle {
+		font-size: 25px;
+		font-weight: bold;
+		color: #c4d600;
+		justify-content: center;
+		align-self: center;
+		margin: 20px;
+	}
+	.subtittle {
+		font-size: 20px;
+		font-weight: bold;
+		color: #003da5;
+		margin: 5% 0 5% 20%;
+	}
+	#dateLabel {
+		margin-left: 0;
+	}
+	.internalContainers {
+		display: flex;
+		flex-direction: row;
+	}
+	.turnContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
 }

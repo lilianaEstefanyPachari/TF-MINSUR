@@ -1,4 +1,12 @@
-import { doc, getDoc, collection, orderBy, getDocs } from 'firebase/firestore';
+import {
+	doc,
+	getDoc,
+	collection,
+	orderBy,
+	getDocs,
+	query,
+	where,
+} from 'firebase/firestore';
 import { db } from './firebase_config.js';
 
 // traer data de usuario
@@ -35,14 +43,46 @@ export const getProgramsQuerySnapshot = async () => {
 
 // asignar un uid a un usuario
 
-export const getEmployeesDocument = async idDoc => {
-	const docRefEmployees = doc(db, 'colaboradores', idDoc);
+export const getEmployeesDocument = async uid => {
+	const docRefEmployees = doc(db, 'colaboradores', uid);
+	console.log(docRefEmployees);
 	const docSnapEmployees = await getDoc(docRefEmployees);
-
+	console.log(docSnapEmployees);
 	if (docSnapEmployees.exists()) {
-		console.log('Document data:', docSnapEmployees.data());
+		console.log('Document data:', docSnapEmployees);
 	} else {
 		// doc.data() will be undefined in this case
-		console.log('No such document!');
+		console.log('No such document also');
 	}
+};
+
+export const getEmployeeByUid = async uid => {
+	console.log('Start getEmployeeByUid', uid);
+
+	const employeeRef = collection(db, 'colaboradores');
+	const employeeQuery = query(employeeRef, where('uid', '==', uid));
+
+	let response = {};
+
+	console.log('query done');
+
+	const querySnapshot = await getDocs(employeeQuery);
+
+	querySnapshot.forEach(doc => {
+		console.log(doc.id, ' => ', doc.data());
+		response = doc.data();
+	});
+
+	return response;
+};
+
+export const getBossById = async userId => {
+	const employeeRef = collection(db, 'colaboradores');
+	const employeeQuery = query(employeeRef, where('IdUser', '==', userId));
+
+	const querySnapshot = await getDocs(employeeQuery);
+
+	querySnapshot.forEach(doc => {
+		console.log(doc.id, ' => ', doc.data());
+	});
 };

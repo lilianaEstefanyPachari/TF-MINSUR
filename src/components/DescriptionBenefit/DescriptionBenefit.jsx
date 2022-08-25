@@ -63,13 +63,19 @@ const DescriptionBenefit = () => {
 							}}
 							style={
 								item.like === true
-									? { margin: 20, fontSize: 40, color: 'red' }
-									: { margin: 20, fontSize: 40, color: '#768998' }
+									? { margin: 20, fontSize: 40, color: '#003DA5' }
+									: { margin: 20, fontSize: 40, color: '#A6BBC8' }
 							}
 						/>
 						<div>
 							<h3 className={style.benefitName}>{item.name}</h3>
-							<p style={{ color: '#4F758B' }}>
+							<p style={{ 
+								color: '#4F758B',
+								marginRight: 30,
+								marginBottom: 10,
+								textAlign: 'left',
+							   }}
+							>
 								{item.description.slice(0, 40) + '...'}
 							</p>
 							<Link

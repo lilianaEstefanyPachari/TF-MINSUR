@@ -4,6 +4,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import vacio from '../../assets/vacio.jpg';
 import style from './DescriptionBenefit.module.css';
 import { getCollections } from '../../services/firebase_config';
+import { Link } from 'react-router-dom';
 
 const DescriptionBenefit = () => {
 	const [listDesc, setListDesc] = useState([]);
@@ -28,7 +29,7 @@ const DescriptionBenefit = () => {
 				</button>
 				<select
 					className={style.btnSelect}
-					onChange={() => filterCategory('Viajes')}
+					onChange={x => filterCategory(x.target.value)}
 				>
 					<option value='Alimentos - Parrillas'>Alimentos - Parrillas</option>
 					<option value='Gimnasio'>Gimnasio</option>
@@ -43,7 +44,7 @@ const DescriptionBenefit = () => {
 								<h4>{item.desc}% Dscto</h4>
 								<p>Cuenta sueldo</p>
 							</div>
-							<img src={vacio} alt='' />
+							<img src={item.img} alt='' />
 						</div>
 						<div className={style.descripBenefit}>
 							<AiOutlineHeart
@@ -52,7 +53,12 @@ const DescriptionBenefit = () => {
 							<div>
 								<h3 className={style.benefitName}>{item.name}</h3>
 								<p style={{ color: '#4F758B' }}>{item.description}</p>
-								<button className={style.btnDetaills}>Ver detalle</button>
+								<Link
+									to={`/Description/${item.id}`}
+									className={style.btnDetaills}
+								>
+									Ver detalle
+								</Link>
 							</div>
 						</div>
 					</div>

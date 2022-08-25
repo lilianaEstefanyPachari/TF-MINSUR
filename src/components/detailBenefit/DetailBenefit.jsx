@@ -36,7 +36,7 @@ const DetailBenefit = () => {
 					margin: '0 auto',
 					justifyContent: 'center',
 					alignItems: 'center',
-                    marginBottom: '110px'
+                    width: '100%'
 				}}
 			>
 				<p>Powered by squad Minsur</p>

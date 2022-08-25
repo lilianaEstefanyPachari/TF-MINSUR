@@ -5,7 +5,7 @@ import Login from './components/login/Login';
 import TimeCoupon from './components/timeCoupon/TimeCoupon';
 import BirthdayCoupon from './components/birthdayCoupon/BirthdayCoupon';
 import { AuthProvider } from './context/authContext';
-
+import DetailBenefit from './components/detailBenefit/DetailBenefit.jsx';
 function App() {
 	return (
 		<>
@@ -14,6 +14,7 @@ function App() {
 					<Routes>
 						<Route path='/' element={<Login />} />
 						<Route path='/home' element={<Home />} />
+						<Route path='/benefit' element={<DetailBenefit />} />
 					</Routes>
 				</BrowserRouter>
 			</AuthProvider>

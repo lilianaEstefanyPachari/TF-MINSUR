@@ -1,4 +1,4 @@
-import { doc, getDoc, collection, orderBy, getDocs, onSnapshot, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, collection, orderBy, getDocs } from 'firebase/firestore';
 import { db } from './firebase_config.js';
 
 // traer data de usuario
@@ -47,17 +47,3 @@ export const getEmployeesDocument = async idDoc => {
 	}
 };
 
-export const getOrder= (setOrders) => {
-	onSnapshot(collection(db, "cuponesdesc"), (snapshot) =>
-	setOrders(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      )
-	}
-
-	export const updateTrue = async(id) => {
-		const collectionRef = doc(db,'cuponesdesc', id);
-		updateDoc(collectionRef, {like : true})
-	  }
-	  export const updateFalse = async(id) => {
-		const collectionRef = doc(db,'cuponesdesc', id);
-		updateDoc(collectionRef, {like : false})
-	  }

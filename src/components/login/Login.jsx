@@ -76,7 +76,7 @@ const Login = () => {
 						variant='outlined'
 						type='email'
 						placeholder='Ingresa tu correo electrónico'
-						sx={{ m: 1, width: '30ch' }}
+						sx={{ m: 1, width: '90%' }}
 						InputProps={{
 							startAdornment: (
 								<InputAdornment position='start'>
@@ -90,7 +90,7 @@ const Login = () => {
 						label='Contraseña'
 						type='password'
 						placeholder='Ingresa tu contraseña'
-						sx={{ m: 1, width: '30ch' }}
+						sx={{ m: 1, width: '90%' }}
 						InputProps={{
 							startAdornment: (
 								<InputAdornment position='start'>

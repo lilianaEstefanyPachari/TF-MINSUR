@@ -12,7 +12,7 @@ const HomeBtn = props => {
 		<Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
 			<Button
 				onClick={props.navigateHandler}
-				style={{ textTransform: 'none' }}
+				style={{ textTransform: 'none', maxWidth: '250px' }}
 				variant='contained'
 				sx={{
 					backgroundColor: '#41B6E6',

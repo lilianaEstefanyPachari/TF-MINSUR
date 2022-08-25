@@ -23,9 +23,7 @@ const DetailBenefit = props => {
 	const handleClose = () => {
 		setPopupActive(false);
 		setForm({
-			nombre: '',
-			unidad: '',
-			fecha: '',
+			...userData,
 		});
 	};
 
@@ -40,9 +38,7 @@ const DetailBenefit = props => {
 		e.preventDefault();
 		setDataInFirestore(form);
 		setForm({
-			nombre: '',
-			unida: '',
-			fecha: '',
+			...userData,
 		});
 		setPopupActive(false);
 	};

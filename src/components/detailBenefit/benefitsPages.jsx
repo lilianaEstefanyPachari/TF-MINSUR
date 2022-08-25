@@ -7,7 +7,9 @@ const Convenios = () => {
 	const [state, setState] = useState(null);
 	let data;
 	if (state) {
-		const dataConvenio = state.filter(item => item.nombreBenef === 'Convenios');
+		const dataConvenio = state.filter(
+			item => item.nombreBenef === 'Convenios de estudios'
+		);
 		const [conveniosObj] = dataConvenio;
 		data = conveniosObj;
 	}
@@ -139,10 +141,68 @@ const LicenciaPaternidad = () => {
 
 	return <>{data && <DetailBenefit data={data}></DetailBenefit>}</>;
 };
+
+const HorarioVerano = () => {
+	const { benefitsData, getBenefitDataCtx } = useBenefits();
+	const [state, setState] = useState(null);
+	let data;
+	if (state) {
+		const dataHrVerano = state.filter(
+			item => item.nombreBenef === 'Horario de verano'
+		);
+		const [dataObj] = dataHrVerano;
+		data = dataObj;
+	}
+
+	useEffect(() => {
+		const getData = async () => {
+			await getBenefitDataCtx().then(data => {
+				const benefits = [];
+				data.forEach(doc => {
+					benefits.push({ ...doc.data(), id: doc.id });
+				});
+				setState(benefits);
+			});
+		};
+		getData();
+	}, []);
+
+	return <>{data && <DetailBenefit data={data}></DetailBenefit>}</>;
+};
+
+const HorarioFlexible = () => {
+	const { benefitsData, getBenefitDataCtx } = useBenefits();
+	const [state, setState] = useState(null);
+	let data;
+	if (state) {
+		const dataLicencia = state.filter(
+			item => item.nombreBenef === 'Horarios flexibles'
+		);
+		const [dataObj] = dataLicencia;
+		data = dataObj;
+	}
+
+	useEffect(() => {
+		const getData = async () => {
+			await getBenefitDataCtx().then(data => {
+				const benefits = [];
+				data.forEach(doc => {
+					benefits.push({ ...doc.data(), id: doc.id });
+				});
+				setState(benefits);
+			});
+		};
+		getData();
+	}, []);
+
+	return <>{data && <DetailBenefit data={data}></DetailBenefit>}</>;
+};
 export {
 	Convenios,
 	SeguroSalud,
 	HomeOffice,
 	LicenciaPorDuelo,
 	LicenciaPaternidad,
+	HorarioVerano,
+	HorarioFlexible,
 };

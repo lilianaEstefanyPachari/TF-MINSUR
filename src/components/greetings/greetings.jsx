@@ -1,6 +1,5 @@
 import { Stack } from '@mui/material';
 import styles from '../home/Home.module.css';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import { useAuth } from '../../context/authContext';
 
 const Greetings = () => {
@@ -22,10 +21,6 @@ const Greetings = () => {
 			<p className={styles.greetings}>
 				Hola <span style={{ fontWeight: '600' }}>{userName}!</span>
 			</p>
-			<NotificationsNoneIcon
-				fontSize='large'
-				sx={{ color: '#FFFFFF', margin: '3px' }}
-			/>
 		</Stack>
 	);
 };

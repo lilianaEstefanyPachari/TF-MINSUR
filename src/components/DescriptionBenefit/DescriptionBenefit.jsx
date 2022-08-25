@@ -22,7 +22,7 @@ const DescriptionBenefit = () => {
 			updateTrue(item.id);
 		}
 	};
-	const redirec = () => {
+	const redirect = () => {
 		navigate('/home');
 	};
 	useEffect(() => {
@@ -35,7 +35,7 @@ const DescriptionBenefit = () => {
 	return (
 		<section>
 			<div className={style.topDescription}>
-				<button className={style.btnComeBack}>
+				<button className={style.btnComeBack} onClick={redirect}>
 					<MdKeyboardArrowLeft style={{ fontSize: 20 }} /> Regresar
 				</button>
 				<select
@@ -69,12 +69,13 @@ const DescriptionBenefit = () => {
 						/>
 						<div>
 							<h3 className={style.benefitName}>{item.name}</h3>
-							<p style={{ 
-								color: '#4F758B',
-								marginRight: 30,
-								marginBottom: 10,
-								textAlign: 'left',
-							   }}
+							<p
+								style={{
+									color: '#4F758B',
+									marginRight: 30,
+									marginBottom: 10,
+									textAlign: 'left',
+								}}
 							>
 								{item.description.slice(0, 40) + '...'}
 							</p>

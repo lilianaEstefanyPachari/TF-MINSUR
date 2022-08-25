@@ -7,7 +7,6 @@ import BirthdayCoupon from './components/birthdayCoupon/BirthdayCoupon';
 import { AuthProvider } from './context/authContext';
 import DetailBenefit from './components/detailBenefit/DetailBenefit';
 import BenefitsInformation from './components/benefitsInformation/BenefitsInformation';
-import DescriptionBenefit from './components/DescriptionBenefit/DescriptionBenefit';
 
 function App() {
 
@@ -25,7 +24,6 @@ function App() {
                             path='/benefitsInformation'
                             element={<BenefitsInformation />}
                         />
-						<Route path='/Description' element={<DescriptionBenefit />} />
                     </Routes>
                 </BrowserRouter>
             </AuthProvider>

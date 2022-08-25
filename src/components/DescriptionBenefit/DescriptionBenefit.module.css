@@ -18,11 +18,11 @@
     border-bottom: 1px solid #A6BBC8;
 }
 .container{
-    padding: 20px;
+    margin: 15px;
     display: flex;
     align-items: stretch;
     flex-direction: column;
-    border-radius:50px;
+    border-radius: 50px;
     
 }
 .boxFloating{
@@ -43,6 +43,7 @@
     align-items: center;
     background-color:#E8ECF3;
     border-radius: 0 0 20px 20px;
+    padding: 0px 0px 15px 0px;
 } 
 .alcostado{
     display: flex;
@@ -57,6 +58,7 @@
     color: white;
     font-size: 18px;
     margin: 5px 0 10px 0;
+    text-decoration-line: none;
 }
 .boxFloating h3{
     margin-top: 5px;
@@ -71,4 +73,10 @@
 .benefitName{
     color: #003da5;
     margin-top: 5px;
+}
+@media (min-width: 700px) and (orientation: landscape){
+    .container{
+        
+        
+    } 
 }

@@ -6,8 +6,10 @@ import TimeCoupon from './components/timeCoupon/TimeCoupon';
 import BirthdayCoupon from './components/birthdayCoupon/BirthdayCoupon';
 import { AuthProvider } from './context/authContext';
 import DetailBenefit from './components/detailBenefit/DetailBenefit';
-import BenefitsInformation from './components/benefitsInformation/benefitsInformation';
+import BenefitsInformation from './components/benefitsInformation/BenefitsInformation';
+
 function App() {
+
     return (
         <>
             <AuthProvider>

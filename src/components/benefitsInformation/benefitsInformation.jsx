@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import vacio from '../../assets/vacio.jpg';
-import { AiOutlineHeart, AiOutlineCheck } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineCheck } from 'react-icons/ai';
 import {
 	BsPlusLg,
 	BsFillBookmarkStarFill,
@@ -57,14 +57,14 @@ const BenefitsInformation = () => {
 							<h3 style={{ fontSize: 20, color: '#003DA5' }}>{desc.name}</h3>
 							<p style={{ fontSize: 15, color: '#4F758B' }}>{desc.category}</p>
 						</div>
-						<AiOutlineHeart
+						<AiFillHeart
 							onClick={() => {
 								updateStatus(desc);
 							}}
 							style={
 								desc.like === true
-									? { margin: 20, fontSize: 40, color: 'red' }
-									: { margin: 20, fontSize: 40, color: '#768998' }
+									? { margin: 20, fontSize: 40, color: '#003DA5' }
+									: { margin: 20, fontSize: 40, color: '#A6BBC8' }
 							}
 						/>
 					</div>
@@ -145,7 +145,7 @@ const BenefitsInformation = () => {
 					</div>
 					<div>
 						<br />
-						<h5 style={{ fontSize: 14, color: '#4F758B' }}>
+						<h5 style={{ fontSize: 14, color: '#4F758B', marginLeft: 20 }}>
 							Información de la promoción
 						</h5>
 						<p
@@ -153,8 +153,9 @@ const BenefitsInformation = () => {
 								marginTop: 10,
 								color: '#4F758B',
 								fontSize: 14,
-								display: 'flex',
-								alignItems: 'center',
+								display: 'flex',							
+								marginRight:20,
+								alignItems: 'center'
 							}}
 						>
 							<BsFillClockFill
@@ -162,6 +163,7 @@ const BenefitsInformation = () => {
 									fontSize: 20,
 									color: '#41B6E6',
 									marginTop: 5,
+									marginLeft: 20,
 									marginRight: 5,
 								}}
 							/>
@@ -172,6 +174,7 @@ const BenefitsInformation = () => {
 								color: '#4F758B',
 								fontSize: 14,
 								display: 'flex',
+								marginRight:20,
 								alignItems: 'center',
 							}}
 						>
@@ -180,6 +183,7 @@ const BenefitsInformation = () => {
 									fontSize: 20,
 									color: '#41B6E6',
 									marginTop: 5,
+									marginLeft: 20,
 									marginRight: 5,
 								}}
 							/>
@@ -190,6 +194,7 @@ const BenefitsInformation = () => {
 								color: '#4F758B',
 								fontSize: 14,
 								display: 'flex',
+								marginRight:20,
 								alignItems: 'center',
 							}}
 						>
@@ -198,6 +203,7 @@ const BenefitsInformation = () => {
 									fontSize: 20,
 									color: '#41B6E6',
 									marginTop: 5,
+									marginLeft: 20,
 									marginRight: 5,
 								}}
 							/>
@@ -206,7 +212,7 @@ const BenefitsInformation = () => {
 					</div>
 					<div>
 						<br />
-						<h5 style={{ fontSize: 14, color: '#4F758B', marginRight: 30 }}>
+						<h5 style={{ fontSize: 14, color: '#4F758B', marginLeft: 20 }}>
 							Aplica
 						</h5>
 						<p
@@ -215,6 +221,7 @@ const BenefitsInformation = () => {
 								color: '#4F758B',
 								fontSize: 14,
 								display: 'flex',
+								marginRight:20,
 								alignItems: 'center',
 							}}
 						>
@@ -223,6 +230,7 @@ const BenefitsInformation = () => {
 									fontSize: 20,
 									color: '#41B6E6',
 									marginTop: 5,
+									marginLeft: 20,
 									marginRight: 5,
 								}}
 							/>{' '}
@@ -233,6 +241,7 @@ const BenefitsInformation = () => {
 								color: '#4F758B',
 								fontSize: 14,
 								display: 'flex',
+								marginRight:20,
 								alignItems: 'center',
 							}}
 						>
@@ -241,6 +250,7 @@ const BenefitsInformation = () => {
 									fontSize: 20,
 									color: '#41B6E6',
 									marginTop: 5,
+									marginLeft: 20,
 									marginRight: 5,
 								}}
 							/>{' '}
@@ -251,6 +261,7 @@ const BenefitsInformation = () => {
 								color: '#4F758B',
 								fontSize: 14,
 								display: 'flex',
+								marginRight:20,
 								alignItems: 'center',
 							}}
 						>
@@ -259,6 +270,7 @@ const BenefitsInformation = () => {
 									fontSize: 20,
 									color: '#41B6E6',
 									marginTop: 5,
+									marginLeft: 20,
 									marginRight: 5,
 								}}
 							/>{' '}

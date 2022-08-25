@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { AiOutlineHeart } from 'react-icons/ai';
-import vacio from '../../assets/vacio.jpg';
 import style from './DescriptionBenefit.module.css';
-// import { getCollections } from '../../services/firebase_config';
-import { Link } from 'react-router-dom';
 import { getOrder, updateTrue, updateFalse } from '../../services/firestore';
+import { useNavigate, Link } from 'react-router-dom';
 
 const DescriptionBenefit = () => {
 	const [listDesc, setListDesc] = useState([]);
 	const [filter, setFilter] = useState([]);
-	const [like, setLike] = useState(false);
+	const navigate = useNavigate();
 
 	const getCollection = () => {
 		getOrder(setListDesc);
@@ -24,6 +22,11 @@ const DescriptionBenefit = () => {
 		} else {
 			updateTrue(item.id);
 		}
+	};
+
+	const navigateHandler = route => {
+		console.log(route);
+		navigate(route);
 	};
 
 	useEffect(() => {
@@ -43,7 +46,7 @@ const DescriptionBenefit = () => {
 					className={style.btnSelect}
 					onChange={x => filterCategory(x.target.value)}
 				>
-					<option value='Alimentos - Parrillas'>Alimentos - Parrillas</option>
+					<option value='Alimentos'>Alimentos - Parrillas</option>
 					<option value='Gimnasio'>Gimnasio</option>
 					<option value='Viajes'>Viajes</option>
 				</select>
@@ -73,10 +76,7 @@ const DescriptionBenefit = () => {
 							<p style={{ color: '#4F758B' }}>
 								{item.description.slice(0, 40) + '...'}
 							</p>
-							<Link
-								to={`/Description/${item.id}`}
-								className={style.btnDetaills}
-							>
+							<Link to={'/benefitsInformation'} className={style.btnDetaills}>
 								Ver detalle
 							</Link>
 						</div>

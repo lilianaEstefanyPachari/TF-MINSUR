@@ -165,7 +165,7 @@ const BenefitsInformation = () => {
 									marginRight: 5,
 								}}
 							/>
-							Lorem ipsum dolor sit amet, consectet
+							{desc.horario}
 						</p>
 						<p
 							style={{
@@ -183,7 +183,7 @@ const BenefitsInformation = () => {
 									marginRight: 5,
 								}}
 							/>
-							Lorem ipsum dolor sit amet, consectet
+							{desc.day}
 						</p>
 						<p
 							style={{
@@ -201,7 +201,7 @@ const BenefitsInformation = () => {
 									marginRight: 5,
 								}}
 							/>
-							Lorem ipsum dolor sit amet, consectet
+							{desc.novalido}
 						</p>
 					</div>
 					<div>
@@ -226,7 +226,7 @@ const BenefitsInformation = () => {
 									marginRight: 5,
 								}}
 							/>{' '}
-							Lorem ipsum dolor sit amet, consectet
+							{desc.aplica1}
 						</p>
 						<p
 							style={{
@@ -244,7 +244,7 @@ const BenefitsInformation = () => {
 									marginRight: 5,
 								}}
 							/>{' '}
-							Lorem ipsum dolor sit amet, consectet
+							{desc.aplica2}
 						</p>
 						<p
 							style={{
@@ -262,7 +262,7 @@ const BenefitsInformation = () => {
 									marginRight: 5,
 								}}
 							/>{' '}
-							Lorem ipsum dolor sit amet, consectet
+							{desc.aplica2}
 						</p>
 					</div>
 					<button className={style.useCouponBtn}>Usar cupón</button>

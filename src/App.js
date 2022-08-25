@@ -22,7 +22,7 @@ function App() {
 							<Route path='/timecoupon' element={<TimeCoupon />} />
 							<Route path='/birthdaycoupon' element={<BirthdayCoupon />} />
 							<Route
-								path='/benefitsInformation/:id'
+								path='/benefitsInformation'
 								element={<BenefitsInformation />}
 							/>
 							<Route path='/description' element={<DescriptionBenefit />} />

@@ -104,4 +104,3 @@ export const updateFalse = async id => {
 	const collectionRef = doc(db, 'cuponesdesc', id);
 	updateDoc(collectionRef, { like: false });
 };
-

@@ -9,9 +9,11 @@ import style from './benefitsInformation.module.css';
 import { FaCalendarAlt, FaCcMastercard, FaCcVisa } from 'react-icons/fa';
 import { HiIdentification } from 'react-icons/hi';
 import { getOrder, updateTrue, updateFalse } from '../../services/firestore';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const BenefitsInformation = () => {
+	const params = useParams()
+	console.log(params)
 	const [listDesc, setListDesc] = useState([]);
 
 	const getCollection = () => {
@@ -32,7 +34,7 @@ const BenefitsInformation = () => {
 
 	return (
 		<>
-			{listDesc.map(desc => (
+			{listDesc.filter(desc => desc.id === params.id).map(desc => (
 				<section className={style.sectionStyle} key={desc.id} name={desc.id}>
 					<div className={style.benefitStyle}>
 						<div className={style.alcostado}>

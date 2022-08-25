@@ -3,7 +3,7 @@ import styles from './TimeCoupon.module.css';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Nav from '../nav/Nav';
+import Navbar from '../nav/nav2';
 import Select from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 import isWeekend from 'date-fns/isWeekend';
@@ -59,7 +59,7 @@ const TimeCoupon = () => {
 	return (
 		<div className={styles.container}>
 			<Stack>
-				<Nav></Nav>
+				<Navbar></Navbar>
 			</Stack>
 			<Stack>
 				<Greetings />

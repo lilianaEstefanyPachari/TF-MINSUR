@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../../assets/Logo_Minsur_BLANCO.png';
-// import { Link } from 'react-scroll';
+
 import './nav2.css';
 import { logOutFb } from '../../services/logout';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Navbar = () => {
 	const [nav, setNav] = useState(false);
@@ -13,6 +13,9 @@ const Navbar = () => {
 	const handleLogOut = () => {
 		logOutFb();
 		navigate('/');
+	};
+	const handleHome = () => {
+		navigate('/home');
 	};
 	return (
 		<div className='nav-container'>
@@ -26,8 +29,9 @@ const Navbar = () => {
 			{/* menu */}
 			<div className='ul-Menu'>
 				<ul className='ul-Tag'>
-					<li className='li-menu'>Home</li>
-
+					<li className='li-menu' onClick={handleHome}>
+						Inicio
+					</li>
 					<li className='li-menu' onClick={handleLogOut}>
 						Cerrar sesión
 					</li>
@@ -44,7 +48,9 @@ const Navbar = () => {
 			</div>
 			{/* mobile menu */}
 			<ul className={!nav ? 'ul-MenuHbr1' : 'ul-MenuHbr2'}>
-				<li className='li-mobile'>Home</li>
+				<li className='li-mobile' onClick={handleHome}>
+					Inicio
+				</li>
 
 				<li className='li-mobile' onClick={handleLogOut}>
 					Cerrar sesión

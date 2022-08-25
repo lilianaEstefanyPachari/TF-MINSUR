@@ -42,3 +42,18 @@
 .btnColor2:hover {
 	background-color: #7952af;
 }
+@media (min-width: 400px) {
+	.divButtons {
+		display: flex;
+	}
+	.button {
+		display: flex;
+		justify-content: space-between;
+		margin: 20px;
+	}
+}
+@media (max-width: 399px) {
+	.button {
+		margin: 40px;
+	}
+}

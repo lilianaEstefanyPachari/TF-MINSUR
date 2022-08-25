@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Home.module.css';
 import { Stack } from '@mui/material';
-import Nav from '../nav/Nav';
 import { SimpleAccordion } from '../accordion/accordion';
 import Greetings from '../greetings/greetings';
 import { useNavigate } from 'react-router-dom';

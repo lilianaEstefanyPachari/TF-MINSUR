@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './BirthdayCoupon.module.css';
-import Nav from '../nav/Nav';
+import Navbar from '../nav/nav2';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
@@ -39,7 +39,7 @@ const BirthdayCoupon = () => {
 		<>
 			<div className={styles.container}>
 				<Stack>
-					<Nav></Nav>
+					<Navbar></Navbar>
 				</Stack>
 				<Stack>
 					<Greetings />

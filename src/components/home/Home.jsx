@@ -12,10 +12,6 @@ import {
 
 const Home = () => {
 	// simulando data para props
-	const actionBtn = {
-		opc1: 'Solicitar beneficio',
-		opc2: 'Solicitar beneficioooo',
-	};
 
 	const [benefitsData, setBenefitsData] = useState([]);
 	const [programsData, setProgramsData] = useState([]);
@@ -28,8 +24,8 @@ const Home = () => {
 		otherBenefits = benefitsData.filter(e => e.IdBenef >= 2);
 	}
 	if (programsData.length) {
-		educationPrograms = programsData.filter(e => e.IdBenef < 3);
-		otherPrograms = programsData.filter(e => e.IdBenef >= 3);
+		educationPrograms = programsData.filter(e => e.IdPrograma < 3);
+		otherPrograms = programsData.filter(e => e.IdPrograma >= 3);
 	}
 
 	// obteniendo beneficios de data
@@ -100,7 +96,7 @@ const Home = () => {
 					<Stack sx={{ padding: '10px' }}>
 						{timeCupons && (
 							<SimpleAccordion
-								actionBtns={actionBtn}
+								actionBtns={true}
 								src={timeCupons[0].icon}
 								title='Cupones de tiempo libre'
 								description={timeCupons[0].descBenef}
@@ -123,7 +119,7 @@ const Home = () => {
 					<Stack sx={{ padding: '10px' }}>
 						{educationPrograms && (
 							<SimpleAccordion
-								actionBtns={actionBtn}
+								actionBtns={true}
 								src={educationPrograms[0].icon}
 								title='Educación'
 								description={educationPrograms[0].DescPrograma}

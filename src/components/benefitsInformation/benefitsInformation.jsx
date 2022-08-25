@@ -9,14 +9,24 @@ import {
 import style from './BenefitsInformation.module.css';
 import { FaCalendarAlt, FaCcMastercard, FaCcVisa } from 'react-icons/fa';
 import { HiIdentification } from 'react-icons/hi';
-import { getCollections } from '../../services/firebase_config';
+import { getOrder, updateTrue, updateFalse } from '../../services/firestore';
 import { useParams, Link } from 'react-router-dom';
 
 const BenefitsInformation = () => {
 	const { id } = useParams();
 	const [listDesc, setListDesc] = useState([]);
-	const getCollection = async () => {
-		setListDesc(await getCollections(`cuponesdesc/${id}`));
+
+	const getCollection = () => {
+		getOrder(setListDesc);
+	};
+
+	const updateStatus = item => {
+		console.log(item.like);
+		if (item.like === true) {
+			updateFalse(item.id);
+		} else {
+			updateTrue(item.id);
+		}
 	};
 
 	useEffect(() => {
@@ -48,7 +58,14 @@ const BenefitsInformation = () => {
 							<p style={{ fontSize: 15, color: '#4F758B' }}>{desc.category}</p>
 						</div>
 						<AiOutlineHeart
-							style={{ margin: 20, fontSize: 40, color: '#768998' }}
+							onClick={() => {
+								updateStatus(desc);
+							}}
+							style={
+								desc.like === true
+									? { margin: 20, fontSize: 40, color: 'red' }
+									: { margin: 20, fontSize: 40, color: '#768998' }
+							}
 						/>
 					</div>
 					<div>

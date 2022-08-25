@@ -16,7 +16,7 @@ function App() {
 					<Routes>
 						<Route path='/' element={<Login />} />
 						<Route path='/home' element={<Home />} />
-						<Route path='/benefits' element={<DetailBenefit />} />
+						{/* <Route path='/benefits' element={<DetailBenefit />} /> */}
 						<Route path='/timecoupon' element={<TimeCoupon />} />
 						<Route path='/birthdaycoupon' element={<BirthdayCoupon />} />
 						<Route
@@ -24,7 +24,7 @@ function App() {
 							element={<BenefitsInformation />}
 						/>
 						<Route path='/Description' element={<DescriptionBenefit />} />
-						<Route path='/Description:id' element={<BenefitsInformation />} />
+						<Route path='/Description/:id' element={<BenefitsInformation />} />
 					</Routes>
 				</BrowserRouter>
 			</AuthProvider>

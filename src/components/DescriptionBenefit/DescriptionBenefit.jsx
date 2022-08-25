@@ -3,17 +3,29 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { AiOutlineHeart } from 'react-icons/ai';
 import vacio from '../../assets/vacio.jpg';
 import style from './DescriptionBenefit.module.css';
-import { getCollections } from '../../services/firebase_config';
+// import { getCollections } from '../../services/firebase_config';
 import { Link } from 'react-router-dom';
+import { getOrder, updateTrue, updateFalse } from '../../services/firestore';
 
 const DescriptionBenefit = () => {
 	const [listDesc, setListDesc] = useState([]);
-	const [filter, setFilter] = useState(listDesc);
+	const [filter, setFilter] = useState([]);
+	const [like, setLike] = useState(false);
 
-	const getCollection = async () => {
-		setListDesc(await getCollections('cuponesdesc'));
-		setFilter(await getCollections('cuponesdesc'));
+	const getCollection = () => {
+		getOrder(setListDesc);
+		getOrder(setFilter);
 	};
+
+	const updateStatus = item => {
+		console.log(item.like);
+		if (item.like === true) {
+			updateFalse(item.id);
+		} else {
+			updateTrue(item.id);
+		}
+	};
+
 	useEffect(() => {
 		getCollection();
 		console.log(listDesc);
@@ -47,7 +59,14 @@ const DescriptionBenefit = () => {
 					</div>
 					<div className={style.descripBenefit}>
 						<AiOutlineHeart
-							style={{ margin: 20, fontSize: 40, color: '#768998' }}
+							onClick={() => {
+								updateStatus(item);
+							}}
+							style={
+								item.like === true
+									? { margin: 20, fontSize: 40, color: 'red' }
+									: { margin: 20, fontSize: 40, color: '#768998' }
+							}
 						/>
 						<div>
 							<h3 className={style.benefitName}>{item.name}</h3>

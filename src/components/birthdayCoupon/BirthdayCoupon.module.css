@@ -1,0 +1,64 @@
+.container {
+	background-color: #003da5;
+}
+.greetings {
+	color: #ffffff;
+	font-size: 25px;
+}
+.tittle {
+	font-size: 18px;
+	font-weight: bold;
+	color: #9063cd;
+	justify-content: center;
+	align-self: center;
+	margin: 5%;
+}
+.subtittle {
+	font-size: 16px;
+	font-weight: bold;
+	color: #003da5;
+	margin: 10px 0 0 15px;
+}
+
+.submitBtn {
+	margin-top: 5px;
+	background-color: #9063cd;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	height: 50px;
+	width: 220px;
+	border-radius: 25px;
+	border: none;
+	margin-bottom: 10%;
+}
+
+@media (min-width: 600px) {
+	.container {
+		margin: auto;
+	}
+	.tittle {
+		font-size: 25px;
+		font-weight: bold;
+		color: #9063cd;
+		justify-content: center;
+		align-self: center;
+		margin: 20px;
+	}
+	.subtittle {
+		font-size: 20px;
+		font-weight: bold;
+		color: #003da5;
+		margin: 5% 0 5% 20%;
+	}
+
+	.internalContainers {
+		display: flex;
+		flex-direction: row;
+	}
+	.turnContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+}

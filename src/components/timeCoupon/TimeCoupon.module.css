@@ -29,8 +29,16 @@
 	width: 220px;
 	border-radius: 25px;
 	border: none;
+	margin-bottom: 10%;
 }
-@media (min-width: 400px) {
+
+.motive {
+	font-size: 16px;
+	font-weight: bold;
+	color: #003da5;
+}
+
+@media (min-width: 600px) {
 	.container {
 		margin: auto;
 	}
@@ -46,9 +54,18 @@
 		font-size: 20px;
 		font-weight: bold;
 		color: #003da5;
-		margin: 5% 0 0 20%;
+		margin: 5% 0 5% 20%;
 	}
 	#dateLabel {
 		margin-left: 0;
+	}
+	.internalContainers {
+		display: flex;
+		flex-direction: row;
+	}
+	.turnContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
 	}
 }

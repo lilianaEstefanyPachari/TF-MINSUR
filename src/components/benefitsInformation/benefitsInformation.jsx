@@ -6,7 +6,7 @@ import {
 	BsFillBookmarkStarFill,
 	BsFillClockFill,
 } from 'react-icons/bs';
-import style from './BenefitsInformation.module.css';
+import style from './benefitsInformation.module.css';
 import { FaCalendarAlt, FaCcMastercard, FaCcVisa } from 'react-icons/fa';
 import { HiIdentification } from 'react-icons/hi';
 import { getCollections } from '../../services/firebase_config';

@@ -13,10 +13,10 @@ import { getCollections } from '../../services/firebase_config';
 import { useParams, Link } from 'react-router-dom';
 
 const BenefitsInformation = () => {
-	const { idParam } = useParams();
+	const { id } = useParams();
 	const [listDesc, setListDesc] = useState([]);
 	const getCollection = async () => {
-		setListDesc(await getCollections(`cuponesdesc/${idParam}`));
+		setListDesc(await getCollections(`cuponesdesc/${id}`));
 	};
 
 	useEffect(() => {

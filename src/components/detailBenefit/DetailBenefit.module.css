@@ -1,5 +1,11 @@
 .container{
-    display: grid;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}
+.divcontainerheader{
+    display: flex;
+    justify-content: flex-end;
 }
 .divheader{
     background-color: #41B6E6;
@@ -8,8 +14,10 @@
     border-radius: 0 0 0 10px;
     width: 180px;
     height: 40px;
-    display: block;
-    padding: 20px 0 0 20px;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
 }
 .title{
     color:#003DA5;
@@ -20,12 +28,21 @@
     margin: 15px;
 }
 .divImage{
-    margin: 10px;
+    margin: 20px;
     text-align: center;
+}
+.containerTitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .description{
     color: #4F758B;
     margin: 15px;
+}
+.divHeart{
+    display: flex;
+    justify-content: flex-end;
 }
 .btnApply{
     background-color: #41B6E6;
@@ -38,5 +55,4 @@
     margin: 10px;
     margin-left: 50%;
     transform: translateX(-50%);
-    
 }

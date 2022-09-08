@@ -37,21 +37,21 @@ const TimeCoupon = () => {
 		setTurn(event.target.value);
 	};
 
-	const submitForm = async e => {
+	const submitForm = e => {
 		e.preventDefault();
 
 		// sendgrid body email
 
-		const msg = {
-			to: 'nay.trevejo@gmail.com',
-			from: 'fparodig@gmail.com', // Use the email address or domain you verified above
-			subject: 'Solicitando permiso de medio día',
-			text: `Hola! Estoy solicitando permiso para ${value} en el turno ${turn}. Muchas gracias.`,
-			html: `Hola! Estoy solicitando permiso para ${value} 
-			en el turno ${turn}. Muchas gracias.
-			Motivo: ${textReq}`,
-		};
-		await SendEmail(msg);
+		// const msg = {
+		// 	to: 'nay.trevejo@gmail.com',
+		// 	from: 'fparodig@gmail.com', // Use the email address or domain you verified above
+		// 	subject: 'Solicitando permiso de medio día',
+		// 	text: `Hola! Estoy solicitando permiso para ${value} en el turno ${turn}. Muchas gracias.`,
+		// 	html: `Hola! Estoy solicitando permiso para ${value} 
+		// 	en el turno ${turn}. Muchas gracias.
+		// 	Motivo: ${textReq}`,
+		// };
+		// await SendEmail(msg);
 
 		setShowModal(!showModal);
 	};
